@@ -33,8 +33,6 @@ for tag in soup.find_all('a', {'href':any}):
         if path.split('/')[0] in ['tutorial', 'api-guide', 'topics']:
             if version_3:
                 path = path + 'index.html'
-            else:
-                path = path + '.html'
             cur.execute('INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES (?,?,?)', (name, 'Guide', path))
             print 'name: %s, path: %s' % (name, path)
 
