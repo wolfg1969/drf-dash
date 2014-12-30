@@ -6,9 +6,9 @@ from bs4 import BeautifulSoup, NavigableString, Tag
 version_3 = not '--v2' in sys.argv
 
 if version_3:
-     docset_path = 'django-rest-framework.docset'
+     docset_path = 'django-rest-framework-3.0.docset'
 else:
-    docset_path = 'django-rest-framework-2.docset'
+    docset_path = 'django-rest-framework-2.4.docset'
 
 db = sqlite3.connect('%s/Contents/Resources/docSet.dsidx' % docset_path)
 cur = db.cursor()
