@@ -1,0 +1,32 @@
+diff --git a/mkdocs.py b/mkdocs.py
+index 25cb55e..8cc99e3 100755
+--- a/mkdocs.py
++++ b/mkdocs.py
+@@ -14,7 +14,8 @@ local = not '--deploy' in sys.argv
+ preview = '-p' in sys.argv
+ 
+ if local:
+-    base_url = 'file://%s/' % os.path.normpath(os.path.join(os.getcwd(), html_dir))
++    #base_url = 'file://%s/' % os.path.normpath(os.path.join(os.getcwd(), html_dir))
++    base_url = '.'
+     suffix = '.html'
+     index = 'index.html'
+ else:
+@@ -150,14 +151,16 @@ for (dirpath, dirnames, filenames) in os.walk(docs_dir):
+ 
+         if relative_path == 'index.md':
+             canonical_url = base_url
++            relative_url = '.'
+         else:
+             canonical_url = base_url + '/' + relative_path[:-3] + suffix
++            relative_url = '..'
+         prev_url = prev_url_map.get(relative_path)
+         next_url = next_url_map.get(relative_path)
+ 
+         content = markdown.markdown(text, ['headerid'])
+ 
+-        output = page.replace('{{ content }}', content).replace('{{ toc }}', toc).replace('{{ base_url }}', base_url).replace('{{ suffix }}', suffix).replace('{{ index }}', index)
++        output = page.replace('{{ content }}', content).replace('{{ toc }}', toc).replace('{{ base_url }}', relative_url).replace('{{ suffix }}', suffix).replace('{{ index }}', index)
+         output = output.replace('{{ title }}', main_title)
+         output = output.replace('{{ description }}', description)
+         output = output.replace('{{ page_id }}', filename[:-3])
