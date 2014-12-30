@@ -17,13 +17,14 @@ $ cd django-rest-framework
   - For version 3.0
   ```
   $ git checkout tags/3.0.2
+  $ git apply ../drf-dash/3.0.patch
   $ mkdocs build
   ```
   
   - For version 2.4.x
   ```
   $ git checkout tags/2.4.4
-  (patch the mkdocs.py with the diff in this repo)
+  $ git apply ../drf-dash/2.4.patch
   $ python mkdocs.py
   ```
   
