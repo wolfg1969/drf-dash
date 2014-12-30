@@ -1,0 +1,24 @@
+diff --git a/mkdocs.py b/mkdocs.py
+index 25cb55e..19944a6 100755
+--- a/mkdocs.py
++++ b/mkdocs.py
+@@ -16,7 +16,7 @@ preview = '-p' in sys.argv
+ if local:
+     base_url = 'file://%s/' % os.path.normpath(os.path.join(os.getcwd(), html_dir))
+     suffix = '.html'
+-    index = 'index.html'
++    index = '/index.html'
+ else:
+     base_url = 'http://www.django-rest-framework.org'
+     suffix = ''
+@@ -149,8 +149,10 @@ for (dirpath, dirnames, filenames) in os.walk(docs_dir):
+             main_title = main_title + ' - Django REST framework'
+ 
+         if relative_path == 'index.md':
++            base_url = '.'
+             canonical_url = base_url
+         else:
++            base_url = '..'
+             canonical_url = base_url + '/' + relative_path[:-3] + suffix
+         prev_url = prev_url_map.get(relative_path)
+         next_url = next_url_map.get(relative_path)
