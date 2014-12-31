@@ -13,8 +13,11 @@ else:
 db = sqlite3.connect('%s/Contents/Resources/docSet.dsidx' % docset_path)
 cur = db.cursor()
 
-try: cur.execute('DROP TABLE searchIndex;')
-except: pass
+try: 
+    cur.execute('DROP TABLE searchIndex;')
+except: 
+    pass
+    
 cur.execute('CREATE TABLE searchIndex(id INTEGER PRIMARY KEY, name TEXT, type TEXT, path TEXT);')
 cur.execute('CREATE UNIQUE INDEX anchor ON searchIndex (name, type, path);')
 
@@ -23,14 +26,14 @@ docpath = '%s/Contents/Resources/Documents' % docset_path
 page = open(os.path.join(docpath,'index.html')).read()
 soup = BeautifulSoup(page)
 
-cur.execute('INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES (?,?,?)', ('Home', 'Guide', 'index.html'))
-
 any = re.compile('.*')
 for tag in soup.find_all('a', {'href':any}):
     name = tag.text.strip()
     if len(name) > 0:
         path = tag.attrs['href'].strip()
         if path.split('/')[0] in ['tutorial', 'api-guide', 'topics']:
+            if '#' in path and not version_3:
+                path = path.replace('#', '.html#')
             cur.execute('INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES (?,?,?)', (name, 'Guide', path))
             print 'name: %s, path: %s' % (name, path)
 
