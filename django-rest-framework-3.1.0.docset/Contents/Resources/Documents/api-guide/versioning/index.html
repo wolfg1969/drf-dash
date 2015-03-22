@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <title>Versioning - Django REST framework</title>
+  <link href="../../img/favicon.ico" rel="icon" type="image/x-icon">
+  <link rel="canonical" href="http://www.django-rest-framework.org/api-guide/versioning/index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Django, API, REST, Versioning">
+  <meta name="author" content="Tom Christie">
+
+  <!-- Le styles -->
+  <link href="../../css/prettify.css" rel="stylesheet">
+  <link href="../../css/bootstrap.css" rel="stylesheet">
+  <link href="../../css/bootstrap-responsive.css" rel="stylesheet">
+  <link href="../../css/default.css" rel="stylesheet">
+
+  <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-18852272-2']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+  <style>
+    span.fusion-wrap a {
+      display: block;
+      margin-top: 10px;
+      color: black;
+    }
+    a.fusion-poweredby {
+      display: block;
+      margin-top: 10px;
+    }
+    @media (max-width: 767px) {
+      div.promo {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body onload="prettyPrint()" class="-page">
+
+  <div class="wrapper">
+
+        <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="repo-link btn btn-primary btn-small" href="https://github.com/tomchristie/django-rest-framework/tree/master">GitHub</a>
+          <a class="repo-link btn btn-inverse btn-small " rel="prev" href="../content-negotiation/index.html">
+            Next <i class="icon-arrow-right icon-white"></i>
+          </a>
+          <a class="repo-link btn btn-inverse btn-small " rel="next" href="../pagination/index.html">
+            <i class="icon-arrow-left icon-white"></i> Previous
+          </a>
+          <a class="repo-link btn btn-inverse btn-small" href="#searchModal" data-toggle="modal"><i class="icon-search icon-white"></i> Search</a>
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="../../index.html">Django REST framework</a>
+          <div class="nav-collapse collapse">
+            
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+              <li ><a href="../../index.html">Home</a></li>
+               
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tutorial <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  
+                  <li >
+                    <a href="../../tutorial/quickstart/index.html">Quickstart</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../tutorial/1-serialization/index.html">1 - Serialization</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../tutorial/2-requests-and-responses/index.html">2 - Requests and responses</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../tutorial/3-class-based-views/index.html">3 - Class based views</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../tutorial/4-authentication-and-permissions/index.html">4 - Authentication and permissions</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../tutorial/5-relationships-and-hyperlinked-apis/index.html">5 - Relationships and hyperlinked APIs</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../tutorial/6-viewsets-and-routers/index.html">6 - Viewsets and routers</a>
+                  </li>
+                  
+                </ul>
+              </li>
+                
+              <li class="dropdown active">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">API Guide <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  
+                  <li >
+                    <a href="../requests/index.html">Requests</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../responses/index.html">Responses</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../views/index.html">Views</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../generic-views/index.html">Generic views</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../viewsets/index.html">Viewsets</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../routers/index.html">Routers</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../parsers/index.html">Parsers</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../renderers/index.html">Renderers</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../serializers/index.html">Serializers</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../fields/index.html">Serializer fields</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../relations/index.html">Serializer relations</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../validators/index.html">Validators</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../authentication/index.html">Authentication</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../permissions/index.html">Permissions</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../throttling/index.html">Throttling</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../filtering/index.html">Filtering</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../pagination/index.html">Pagination</a>
+                  </li>
+                  
+                  <li class="active" >
+                    <a href="index.html">Versioning</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../content-negotiation/index.html">Content negotiation</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../metadata/index.html">Metadata</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../format-suffixes/index.html">Format suffixes</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../reverse/index.html">Returning URLs</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../exceptions/index.html">Exceptions</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../status-codes/index.html">Status codes</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../testing/index.html">Testing</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../settings/index.html">Settings</a>
+                  </li>
+                  
+                </ul>
+              </li>
+                
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Topics <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  
+                  <li >
+                    <a href="../../topics/documenting-your-api/index.html">Documenting your API</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../topics/internationalization/index.html">Internationalization</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../topics/ajax-csrf-cors/index.html">AJAX, CSRF & CORS</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../topics/browser-enhancements/index.html">Browser enhancements</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../topics/browsable-api/index.html">The Browsable API</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../topics/rest-hypermedia-hateoas/index.html">REST, Hypermedia & HATEOAS</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../topics/third-party-resources/index.html">Third Party Resources</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../topics/contributing/index.html">Contributing to REST framework</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../topics/project-management/index.html">Project management</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../topics/3.0-announcement/index.html">3.0 Announcement</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../topics/3.1-announcement/index.html">3.1 Announcement</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../topics/kickstarter-announcement/index.html">Kickstarter Announcement</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../topics/release-notes/index.html">Release Notes</a>
+                  </li>
+                  
+                </ul>
+              </li>
+               
+
+            </ul>
+            
+          </div>
+          <!--/.nav-collapse -->
+
+        </div>
+      </div>
+    </div>
+
+    <div class="body-content">
+      <div class="container-fluid">
+
+        <!-- Search Modal -->
+        <div id="searchModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3 id="myModalLabel">Documentation search</h3>
+          </div>
+
+          <div class="modal-body">
+            <!-- Custom google search -->
+            <script>
+              (function() {
+                var cx = '015016005043623903336:rxraeohqk6w';
+                var gcse = document.createElement('script');
+                gcse.type = 'text/javascript';
+                gcse.async = true;
+                gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+                  '//www.google.com/cse/cse.js?cx=' + cx;
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(gcse, s);
+              })();
+            </script>
+            <gcse:search></gcse:search>
+          </div>
+
+          <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+          </div>
+        </div>
+
+        <div class="row-fluid">
+
+          <div class="span3">
+            <!-- TODO
+            <p style="margin-top: -12px">
+              <a class="btn btn-mini btn-primary" style="width: 60px">&laquo; previous</a>
+              <a class="btn btn-mini btn-primary" style="float: right; margin-right: 8px; width: 60px;">next &raquo;</a>
+            </p>
+          -->
+            <div id="table-of-contents">
+              <ul class="nav nav-list side-nav well sidebar-nav-fixed">
+
+                
+
+                
+
+                  <li class="main">
+                    <a href="#versioning">Versioning</a>
+                  </li>
+
+                  
+                    <li>
+                      <a href="#versioning-with-rest-framework">Versioning with REST framework</a>
+                    </li>
+                  
+                    <li>
+                      <a href="#configuring-the-versioning-scheme">Configuring the versioning scheme</a>
+                    </li>
+                  
+
+                
+
+                  <li class="main">
+                    <a href="#api-reference">API Reference</a>
+                  </li>
+
+                  
+                    <li>
+                      <a href="#acceptheaderversioning">AcceptHeaderVersioning</a>
+                    </li>
+                  
+                    <li>
+                      <a href="#urlparameterversioning">URLParameterVersioning</a>
+                    </li>
+                  
+                    <li>
+                      <a href="#namespaceversioning">NamespaceVersioning</a>
+                    </li>
+                  
+                    <li>
+                      <a href="#hostnameversioning">HostNameVersioning</a>
+                    </li>
+                  
+                    <li>
+                      <a href="#queryparameterversioning">QueryParameterVersioning</a>
+                    </li>
+                  
+
+                
+
+                  <li class="main">
+                    <a href="#custom-versioning-schemes">Custom versioning schemes</a>
+                  </li>
+
+                  
+                    <li>
+                      <a href="#example">Example</a>
+                    </li>
+                  
+
+                
+
+                
+
+              </ul>
+
+            </div>
+          </div>
+
+          <div id="main-content" class="span9">
+            
+              
+                <a class="github" href="https://github.com/tomchristie/django-rest-framework/tree/master/rest_framework/versioning.py">
+                  <span class="label label-info">versioning.py</span>
+                </a>
+              
+            
+
+            <h1 id="versioning">Versioning</h1>
+<blockquote>
+<p>Versioning an interface is just a "polite" way to kill deployed clients.</p>
+<p>&mdash; <a href="http://www.slideshare.net/evolve_conference/201308-fielding-evolve/31">Roy Fielding</a>.</p>
+</blockquote>
+<p>API versioning allows you to alter behavior between different clients. REST framework provides for a number of different versioning schemes.</p>
+<p>Versioning is determined by the incoming client request, and may either be based on the request URL, or based on the request headers.</p>
+<p>There are a number of valid approaches to approaching versioning. <a href="http://www.infoq.com/articles/roy-fielding-on-versioning">Non-versioned systems can also be appropriate</a>, particularly if you're engineering for very long-term systems with multiple clients outside of your control.</p>
+<h2 id="versioning-with-rest-framework">Versioning with REST framework</h2>
+<p>When API versioning is enabled, the <code>request.version</code> attribute will contain a string that corresponds to the version requested in the incoming client request.</p>
+<p>By default, versioning is not enabled, and <code>request.version</code> will always return <code>None</code>.</p>
+<h4 id="varying-behavior-based-on-the-version">Varying behavior based on the version</h4>
+<p>How you vary the API behavior is up to you, but one example you might typically want is to switch to a different serialization style in a newer version. For example:</p>
+<pre><code>def get_serializer_class(self):
+    if self.request.version == 'v1':
+        return AccountSerializerVersion1
+    return AccountSerializer
+</code></pre>
+<h4 id="reversing-urls-for-versioned-apis">Reversing URLs for versioned APIs</h4>
+<p>The <code>reverse</code> function included by REST framework ties in with the versioning scheme. You need to make sure to include the current <code>request</code> as a keyword argument, like so.</p>
+<pre><code>reverse('bookings-list', request=request)
+</code></pre>
+<p>The above function will apply any URL transformations appropriate to the request version. For example:</p>
+<ul>
+<li>If <code>NamespacedVersioning</code> was being used, and the API version was 'v1', then the URL lookup used would be <code>'v1:bookings-list'</code>, which might resolve to a URL like <code>http://example.org/v1/bookings/</code>.</li>
+<li>If <code>QueryParameterVersioning</code> was being used, and the API version was <code>1.0</code>, then the returned URL might be something like <code>http://example.org/bookings/?version=1.0</code></li>
+</ul>
+<h4 id="versioned-apis-and-hyperlinked-serializers">Versioned APIs and hyperlinked serializers</h4>
+<p>When using hyperlinked serialization styles together with a URL based versioning scheme make sure to include the request as context to the serializer.</p>
+<pre><code>def get(self, request):
+    queryset = Booking.objects.all()
+    serializer = BookingsSerializer(queryset, many=True, context={'request': request})
+    return Response({'all_bookings': serializer.data})
+</code></pre>
+<p>Doing so will allow any returned URLs to include the appropriate versioning.</p>
+<h2 id="configuring-the-versioning-scheme">Configuring the versioning scheme</h2>
+<p>The versioning scheme is defined by the <code>DEFAULT_VERSIONING_CLASS</code> settings key.</p>
+<pre><code>REST_FRAMEWORK = {
+    'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.NamespaceVersioning'
+}
+</code></pre>
+<p>Unless it is explicitly set, the value for <code>DEFAULT_VERSIONING_CLASS</code> will be <code>None</code>. In this case the <code>request.version</code> attribute will always return <code>None</code>.</p>
+<p>You can also set the versioning scheme on an individual view. Typically you won't need to do this, as it makes more sense to have a single versioning scheme used globally. If you do need to do so, use the <code>versioning_class</code> attribute.</p>
+<pre><code>class ProfileList(APIView):
+    versioning_class = versioning.QueryParameterVersioning
+</code></pre>
+<h4 id="other-versioning-settings">Other versioning settings</h4>
+<p>The following settings keys are also used to control versioning:</p>
+<ul>
+<li><code>DEFAULT_VERSION</code>. The value that should be used for <code>request.version</code> when no versioning information is present. Defaults to <code>None</code>.</li>
+<li><code>ALLOWED_VERSIONS</code>. If set, this value will restrict the set of versions that may be returned by the versioning scheme, and will raise an error if the provided version if not in this set. Defaults to <code>None</code>.</li>
+<li><code>VERSION_PARAMETER</code>. The string that should used for any versioning parameters, such as in the media type or URL query parameters. Defaults to <code>'version'</code>.</li>
+</ul>
+<hr />
+<h1 id="api-reference">API Reference</h1>
+<h2 id="acceptheaderversioning">AcceptHeaderVersioning</h2>
+<p>This scheme requires the client to specify the version as part of the media type in the <code>Accept</code> header. The version is included as a media type parameter, that supplements the main media type.</p>
+<p>Here's an example HTTP request using the accept header versioning style.</p>
+<pre><code>GET /bookings/ HTTP/1.1
+Host: example.com
+Accept: application/json; version=1.0
+</code></pre>
+<p>In the example request above <code>request.version</code> attribute would return the string <code>'1.0'</code>.</p>
+<p>Versioning based on accept headers is <a href="http://blog.steveklabnik.com/posts/2011-07-03-nobody-understands-rest-or-http#i_want_my_api_to_be_versioned">generally considered</a> as <a href="https://github.com/interagent/http-api-design#version-with-accepts-header">best practice</a>, although other styles may be suitable depending on your client requirements.</p>
+<h4 id="using-accept-headers-with-vendor-media-types">Using accept headers with vendor media types</h4>
+<p>Strictly speaking the <code>json</code> media type is not specified as <a href="http://tools.ietf.org/html/rfc4627#section-6">including additional parameters</a>. If you are building a well-specified public API you might consider using a <a href="http://en.wikipedia.org/wiki/Internet_media_type#Vendor_tree">vendor media type</a>. To do so, configure your renderers to use a JSON based renderer with a custom media type:</p>
+<pre><code>class BookingsAPIRenderer(JSONRenderer):
+    media_type = 'application/vnd.megacorp.bookings+json'
+</code></pre>
+<p>Your client requests would now look like this:</p>
+<pre><code>GET /bookings/ HTTP/1.1
+Host: example.com
+Accept: application/vnd.megacorp.bookings+json; version=1.0
+</code></pre>
+<h2 id="urlparameterversioning">URLParameterVersioning</h2>
+<p>This scheme requires the client to specify the version as part of the URL path.</p>
+<pre><code>GET /v1/bookings/ HTTP/1.1
+Host: example.com
+Accept: application/json
+</code></pre>
+<p>Your URL conf must include a pattern that matches the version with a <code>'version'</code> keyword argument, so that this information is available to the versioning scheme.</p>
+<pre><code>urlpatterns = [
+    url(
+        r'^(?P&lt;version&gt;{v1,v2})/bookings/$',
+        bookings_list,
+        name='bookings-list'
+    ),
+    url(
+        r'^(?P&lt;version&gt;{v1,v2})/bookings/(?P&lt;pk&gt;[0-9]+)/$',
+        bookings_detail,
+        name='bookings-detail'
+    )
+]
+</code></pre>
+<h2 id="namespaceversioning">NamespaceVersioning</h2>
+<p>To the client, this scheme is the same as <code>URLParameterVersioning</code>. The only difference is how it is configured in your Django application, as it uses URL namespacing, instead of URL keyword arguments.</p>
+<pre><code>GET /v1/something/ HTTP/1.1
+Host: example.com
+Accept: application/json
+</code></pre>
+<p>With this scheme the <code>request.version</code> attribute is determined based on the <code>namespace</code> that matches the incoming request path.</p>
+<p>In the following example we're giving a set of views two different possible URL prefixes, each under a different namespace:</p>
+<pre><code># bookings/urls.py
+urlpatterns = [
+    url(r'^$', bookings_list, name='bookings-list'),
+    url(r'^(?P&lt;pk&gt;[0-9]+)/$', bookings_detail, name='bookings-detail')
+]
+
+# urls.py
+urlpatterns = [
+    url(r'^v1/bookings/', include('bookings.urls', namespace='v1')),
+    url(r'^v2/bookings/', include('bookings.urls', namespace='v2'))
+]
+</code></pre>
+<p>Both <code>URLParameterVersioning</code> and <code>NamespaceVersioning</code> are reasonable if you just need a simple versioning scheme. The <code>URLParameterVersioning</code> approach might be better suitable for small ad-hoc projects, and the <code>NamespaceVersioning</code> is probably easier to manage for larger projects.</p>
+<h2 id="hostnameversioning">HostNameVersioning</h2>
+<p>The hostname versioning scheme requires the client to specify the requested version as part of the hostname in the URL.</p>
+<p>For example the following is an HTTP request to the <code>http://v1.example.com/bookings/</code> URL:</p>
+<pre><code>GET /bookings/ HTTP/1.1
+Host: v1.example.com
+Accept: application/json
+</code></pre>
+<p>By default this implementation expects the hostname to match this simple regular expression:</p>
+<pre><code>^([a-zA-Z0-9]+)\.[a-zA-Z0-9]+\.[a-zA-Z0-9]+$
+</code></pre>
+<p>Note that the first group is enclosed in brackets, indicating that this is the matched portion of the hostname.</p>
+<p>The <code>HostNameVersioning</code> scheme can be awkward to use in debug mode as you will typically be accessing a raw IP address such as <code>127.0.0.1</code>. There are various online services which you to <a href="https://reinteractive.net/posts/199-developing-and-testing-rails-applications-with-subdomains">access localhost with a custom subdomain</a> which you may find helpful in this case.</p>
+<p>Hostname based versioning can be particularly useful if you have requirements to route incoming requests to different servers based on the version, as you can configure different DNS records for different API versions.</p>
+<h2 id="queryparameterversioning">QueryParameterVersioning</h2>
+<p>This scheme is a simple style that includes the version as a query parameter in the URL. For example:</p>
+<pre><code>GET /something/?version=0.1 HTTP/1.1
+Host: example.com
+Accept: application/json
+</code></pre>
+<hr />
+<h1 id="custom-versioning-schemes">Custom versioning schemes</h1>
+<p>To implement a custom versioning scheme, subclass <code>BaseVersioning</code> and override the <code>.determine_version</code> method.</p>
+<h2 id="example">Example</h2>
+<p>The following example uses a custom <code>X-API-Version</code> header to determine the requested version.</p>
+<pre><code>class XAPIVersionScheme(versioning.BaseVersioning):
+    def determine_version(self, request, *args, **kwargs):
+        return request.META.get('HTTP_X_API_VERSION', None)
+</code></pre>
+<p>If your versioning scheme is based on the request URL, you will also want to alter how versioned URLs are determined. In order to do so you should override the <code>.reverse()</code> method on the class. See the source code for examples.</p>
+
+          </div>
+          <!--/span-->
+        </div>
+        <!--/row-->
+      </div>
+      <!--/.fluid-container-->
+    </div>
+    <!--/.body content-->
+    <div id="push"></div>
+  </div>
+  <!--/.wrapper -->
+
+  <footer class="span12">
+    <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</a>
+    </p>
+  </footer>
+
+  <!-- Le javascript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="../../js/jquery-1.8.1-min.js"></script>
+  <script src="../../js/prettify-1.0.js"></script>
+  <script src="../../js/bootstrap-2.1.1-min.js"></script>
+  <script src="../../js/theme.js"></script>
+
+  <script>
+    //$('.side-nav').scrollspy()
+    var shiftWindow = function() {
+      scrollBy(0, -50)
+    };
+    if (location.hash) shiftWindow();
+    window.addEventListener("hashchange", shiftWindow);
+
+    $('.dropdown-menu').on('click touchstart', function(event) {
+      event.stopPropagation();
+    });
+
+    // Dynamically force sidenav to no higher than browser window
+    $('.side-nav').css('max-height', window.innerHeight - 130);
+
+    $(function() {
+      $(window).resize(function() {
+        $('.side-nav').css('max-height', window.innerHeight - 130);
+      });
+    });
+  </script>
+</body>
+
+</html>
