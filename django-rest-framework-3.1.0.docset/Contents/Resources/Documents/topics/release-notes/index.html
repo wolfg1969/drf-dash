@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <title>Release Notes - Django REST framework</title>
+  <link href="../../img/favicon.ico" rel="icon" type="image/x-icon">
+  <link rel="canonical" href="http://www.django-rest-framework.org/topics/release-notes/index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Django, API, REST, Release Notes">
+  <meta name="author" content="Tom Christie">
+
+  <!-- Le styles -->
+  <link href="../../css/prettify.css" rel="stylesheet">
+  <link href="../../css/bootstrap.css" rel="stylesheet">
+  <link href="../../css/bootstrap-responsive.css" rel="stylesheet">
+  <link href="../../css/default.css" rel="stylesheet">
+
+  <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-18852272-2']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+  <style>
+    span.fusion-wrap a {
+      display: block;
+      margin-top: 10px;
+      color: black;
+    }
+    a.fusion-poweredby {
+      display: block;
+      margin-top: 10px;
+    }
+    @media (max-width: 767px) {
+      div.promo {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body onload="prettyPrint()" class="-page">
+
+  <div class="wrapper">
+
+        <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="repo-link btn btn-primary btn-small" href="https://github.com/tomchristie/django-rest-framework/tree/master">GitHub</a>
+          <a class="repo-link btn btn-inverse btn-small disabled" rel="prev" >
+            Next <i class="icon-arrow-right icon-white"></i>
+          </a>
+          <a class="repo-link btn btn-inverse btn-small " rel="next" href="../kickstarter-announcement/index.html">
+            <i class="icon-arrow-left icon-white"></i> Previous
+          </a>
+          <a class="repo-link btn btn-inverse btn-small" href="#searchModal" data-toggle="modal"><i class="icon-search icon-white"></i> Search</a>
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="../../index.html">Django REST framework</a>
+          <div class="nav-collapse collapse">
+            
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+              <li ><a href="../../index.html">Home</a></li>
+               
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tutorial <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  
+                  <li >
+                    <a href="../../tutorial/quickstart/index.html">Quickstart</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../tutorial/1-serialization/index.html">1 - Serialization</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../tutorial/2-requests-and-responses/index.html">2 - Requests and responses</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../tutorial/3-class-based-views/index.html">3 - Class based views</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../tutorial/4-authentication-and-permissions/index.html">4 - Authentication and permissions</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../tutorial/5-relationships-and-hyperlinked-apis/index.html">5 - Relationships and hyperlinked APIs</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../tutorial/6-viewsets-and-routers/index.html">6 - Viewsets and routers</a>
+                  </li>
+                  
+                </ul>
+              </li>
+                
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">API Guide <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  
+                  <li >
+                    <a href="../../api-guide/requests/index.html">Requests</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../api-guide/responses/index.html">Responses</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../api-guide/views/index.html">Views</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../api-guide/generic-views/index.html">Generic views</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../api-guide/viewsets/index.html">Viewsets</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../api-guide/routers/index.html">Routers</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../api-guide/parsers/index.html">Parsers</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../api-guide/renderers/index.html">Renderers</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../api-guide/serializers/index.html">Serializers</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../api-guide/fields/index.html">Serializer fields</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../api-guide/relations/index.html">Serializer relations</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../api-guide/validators/index.html">Validators</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../api-guide/authentication/index.html">Authentication</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../api-guide/permissions/index.html">Permissions</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../api-guide/throttling/index.html">Throttling</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../api-guide/filtering/index.html">Filtering</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../api-guide/pagination/index.html">Pagination</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../api-guide/versioning/index.html">Versioning</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../api-guide/content-negotiation/index.html">Content negotiation</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../api-guide/metadata/index.html">Metadata</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../api-guide/format-suffixes/index.html">Format suffixes</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../api-guide/reverse/index.html">Returning URLs</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../api-guide/exceptions/index.html">Exceptions</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../api-guide/status-codes/index.html">Status codes</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../api-guide/testing/index.html">Testing</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../api-guide/settings/index.html">Settings</a>
+                  </li>
+                  
+                </ul>
+              </li>
+                
+              <li class="dropdown active">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Topics <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  
+                  <li >
+                    <a href="../documenting-your-api/index.html">Documenting your API</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../internationalization/index.html">Internationalization</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../ajax-csrf-cors/index.html">AJAX, CSRF & CORS</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../browser-enhancements/index.html">Browser enhancements</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../browsable-api/index.html">The Browsable API</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../rest-hypermedia-hateoas/index.html">REST, Hypermedia & HATEOAS</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../third-party-resources/index.html">Third Party Resources</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../contributing/index.html">Contributing to REST framework</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../project-management/index.html">Project management</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../3.0-announcement/index.html">3.0 Announcement</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../3.1-announcement/index.html">3.1 Announcement</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../kickstarter-announcement/index.html">Kickstarter Announcement</a>
+                  </li>
+                  
+                  <li class="active" >
+                    <a href="index.html">Release Notes</a>
+                  </li>
+                  
+                </ul>
+              </li>
+               
+
+            </ul>
+            
+          </div>
+          <!--/.nav-collapse -->
+
+        </div>
+      </div>
+    </div>
+
+    <div class="body-content">
+      <div class="container-fluid">
+
+        <!-- Search Modal -->
+        <div id="searchModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3 id="myModalLabel">Documentation search</h3>
+          </div>
+
+          <div class="modal-body">
+            <!-- Custom google search -->
+            <script>
+              (function() {
+                var cx = '015016005043623903336:rxraeohqk6w';
+                var gcse = document.createElement('script');
+                gcse.type = 'text/javascript';
+                gcse.async = true;
+                gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+                  '//www.google.com/cse/cse.js?cx=' + cx;
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(gcse, s);
+              })();
+            </script>
+            <gcse:search></gcse:search>
+          </div>
+
+          <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+          </div>
+        </div>
+
+        <div class="row-fluid">
+
+          <div class="span3">
+            <!-- TODO
+            <p style="margin-top: -12px">
+              <a class="btn btn-mini btn-primary" style="width: 60px">&laquo; previous</a>
+              <a class="btn btn-mini btn-primary" style="float: right; margin-right: 8px; width: 60px;">next &raquo;</a>
+            </p>
+          -->
+            <div id="table-of-contents">
+              <ul class="nav nav-list side-nav well sidebar-nav-fixed">
+
+                
+
+                
+
+                  <li class="main">
+                    <a href="#release-notes">Release Notes</a>
+                  </li>
+
+                  
+                    <li>
+                      <a href="#versioning">Versioning</a>
+                    </li>
+                  
+                    <li>
+                      <a href="#deprecation-policy">Deprecation policy</a>
+                    </li>
+                  
+                    <li>
+                      <a href="#upgrading">Upgrading</a>
+                    </li>
+                  
+                    <li>
+                      <a href="#30x-series">3.0.x series</a>
+                    </li>
+                  
+
+                
+
+                
+
+              </ul>
+
+            </div>
+          </div>
+
+          <div id="main-content" class="span9">
+            
+
+            <h1 id="release-notes">Release Notes</h1>
+<blockquote>
+<p>Release Early, Release Often</p>
+<p>&mdash; Eric S. Raymond, <a href="http://www.catb.org/~esr/writings/cathedral-bazaar/cathedral-bazaar/ar01s04.html">The Cathedral and the Bazaar</a>.</p>
+</blockquote>
+<h2 id="versioning">Versioning</h2>
+<p>Minor version numbers (0.0.x) are used for changes that are API compatible.  You should be able to upgrade between minor point releases without any other code changes.</p>
+<p>Medium version numbers (0.x.0) may include API changes, in line with the <a href="#deprecation-policy">deprecation policy</a>.  You should read the release notes carefully before upgrading between medium point releases.</p>
+<p>Major version numbers (x.0.0) are reserved for substantial project milestones.</p>
+<h2 id="deprecation-policy">Deprecation policy</h2>
+<p>REST framework releases follow a formal deprecation policy, which is in line with <a href="https://docs.djangoproject.com/en/dev/internals/release-process/#internal-release-deprecation-policy">Django's deprecation policy</a>.</p>
+<p>The timeline for deprecation of a feature present in version 1.0 would work as follows:</p>
+<ul>
+<li>
+<p>Version 1.1 would remain <strong>fully backwards compatible</strong> with 1.0, but would raise <code>PendingDeprecationWarning</code> warnings if you use the feature that are due to be deprecated.  These warnings are <strong>silent by default</strong>, but can be explicitly enabled when you're ready to start migrating any required changes.  For example if you start running your tests using <code>python -Wd manage.py test</code>, you'll be warned of any API changes you need to make.</p>
+</li>
+<li>
+<p>Version 1.2 would escalate these warnings to <code>DeprecationWarning</code>, which is loud by default.</p>
+</li>
+<li>
+<p>Version 1.3 would remove the deprecated bits of API entirely.</p>
+</li>
+</ul>
+<p>Note that in line with Django's policy, any parts of the framework not mentioned in the documentation should generally be considered private API, and may be subject to change.</p>
+<h2 id="upgrading">Upgrading</h2>
+<p>To upgrade Django REST framework to the latest version, use pip:</p>
+<pre><code>pip install -U djangorestframework
+</code></pre>
+<p>You can determine your currently installed version using <code>pip freeze</code>:</p>
+<pre><code>pip freeze | grep djangorestframework
+</code></pre>
+<hr />
+<h2 id="30x-series">3.0.x series</h2>
+<h3 id="310">3.1.0</h3>
+<p><strong>Date</strong>: [5th March 2015][3.1.0-milestone].</p>
+<p>For full details see the <a href="../3.1-announcement/index.html">3.1 release announcement</a>.</p>
+<h3 id="305">3.0.5</h3>
+<p><strong>Date</strong>: <a href="https://github.com/tomchristie/django-rest-framework/issues?q=milestone%3A%223.0.5+Release%22">10th February 2015</a>.</p>
+<ul>
+<li>Fix a bug where <code>_closable_objects</code> breaks pickling. (<a href="https://github.com/tomchristie/django-rest-framework/issues/1850">#1850</a>, <a href="https://github.com/tomchristie/django-rest-framework/issues/2492">#2492</a>)</li>
+<li>Allow non-standard <code>User</code> models with <code>Throttling</code>. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2524">#2524</a>)</li>
+<li>Support custom <code>User.db_table</code> in TokenAuthentication migration. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2479">#2479</a>)</li>
+<li>Fix misleading <code>AttributeError</code> tracebacks on <code>Request</code> objects. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2530">#2530</a>, <a href="https://github.com/tomchristie/django-rest-framework/issues/2108">#2108</a>)</li>
+<li><code>ManyRelatedField.get_value</code> clearing field on partial update. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2475">#2475</a>)</li>
+<li>Removed '.model' shortcut from code. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2486">#2486</a>)</li>
+<li>Fix <code>detail_route</code> and <code>list_route</code> mutable argument. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2518">#2518</a>)</li>
+<li>Prefetching the user object when getting the token in <code>TokenAuthentication</code>. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2519">#2519</a>)</li>
+</ul>
+<h3 id="304">3.0.4</h3>
+<p><strong>Date</strong>: <a href="https://github.com/tomchristie/django-rest-framework/issues?q=milestone%3A%223.0.4+Release%22">28th January 2015</a>.</p>
+<ul>
+<li>Django 1.8a1 support. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2425">#2425</a>, <a href="https://github.com/tomchristie/django-rest-framework/issues/2446">#2446</a>, <a href="https://github.com/tomchristie/django-rest-framework/issues/2441">#2441</a>)</li>
+<li>Add <code>DictField</code> and support Django 1.8 <code>HStoreField</code>. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2451">#2451</a>, <a href="https://github.com/tomchristie/django-rest-framework/issues/2106">#2106</a>)</li>
+<li>Add <code>UUIDField</code> and support Django 1.8 <code>UUIDField</code>. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2448">#2448</a>, <a href="https://github.com/tomchristie/django-rest-framework/issues/2433">#2433</a>, <a href="https://github.com/tomchristie/django-rest-framework/issues/2432">#2432</a>)</li>
+<li><code>BaseRenderer.render</code> now raises <code>NotImplementedError</code>. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2434">#2434</a>)</li>
+<li>Fix timedelta JSON serialization on Python 2.6. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2430">#2430</a>)</li>
+<li><code>ResultDict</code> and <code>ResultList</code> now appear as standard dict/list. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2421">#2421</a>)</li>
+<li>Fix visible <code>HiddenField</code> in the HTML form of the web browsable API page. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2410">#2410</a>)</li>
+<li>Use <code>OrderedDict</code> for <code>RelatedField.choices</code>. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2408">#2408</a>)</li>
+<li>Fix ident format when using <code>HTTP_X_FORWARDED_FOR</code>. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2401">#2401</a>)</li>
+<li>Fix invalid key with memcached while using throttling. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2400">#2400</a>)</li>
+<li>Fix <code>FileUploadParser</code> with version 3.x. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2399">#2399</a>)</li>
+<li>Fix the serializer inheritance. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2388">#2388</a>)</li>
+<li>Fix caching issues with <code>ReturnDict</code>. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2360">#2360</a>)</li>
+</ul>
+<h3 id="303">3.0.3</h3>
+<p><strong>Date</strong>: <a href="https://github.com/tomchristie/django-rest-framework/issues?q=milestone%3A%223.0.3+Release%22">8th January 2015</a>.</p>
+<ul>
+<li>Fix <code>MinValueValidator</code> on <code>models.DateField</code>. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2369">#2369</a>)</li>
+<li>Fix serializer missing context when pagination is used. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2355">#2355</a>)</li>
+<li>Namespaced router URLs are now supported by the <code>DefaultRouter</code>. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2351">#2351</a>)</li>
+<li><code>required=False</code> allows omission of value for output. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2342">#2342</a>)</li>
+<li>Use textarea input for <code>models.TextField</code>. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2340">#2340</a>)</li>
+<li>Use custom <code>ListSerializer</code> for pagination if required. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2331">#2331</a>, <a href="https://github.com/tomchristie/django-rest-framework/issues/2327">#2327</a>)</li>
+<li>Better behavior with null and '' for blank HTML fields. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2330">#2330</a>)</li>
+<li>Ensure fields in <code>exclude</code> are model fields. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2319">#2319</a>)</li>
+<li>Fix <code>IntegerField</code> and <code>max_length</code> argument incompatibility. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2317">#2317</a>)</li>
+<li>Fix the YAML encoder for 3.0 serializers. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2315">#2315</a>, <a href="https://github.com/tomchristie/django-rest-framework/issues/2283">#2283</a>)</li>
+<li>Fix the behavior of empty HTML fields. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2311">#2311</a>, <a href="https://github.com/tomchristie/django-rest-framework/issues/1101">#1101</a>)</li>
+<li>Fix Metaclass attribute depth ignoring fields attribute. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2287">#2287</a>)</li>
+<li>Fix <code>format_suffix_patterns</code> to work with Django's <code>i18n_patterns</code>. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2278">#2278</a>)</li>
+<li>Ability to customize router URLs for custom actions, using <code>url_path</code>. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2010">#2010</a>)</li>
+<li>Don't install Django REST Framework as egg. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2386">#2386</a>)</li>
+</ul>
+<h3 id="302">3.0.2</h3>
+<p><strong>Date</strong>: <a href="https://github.com/tomchristie/django-rest-framework/issues?q=milestone%3A%223.0.2+Release%22">17th December 2014</a>.</p>
+<ul>
+<li>Ensure <code>request.user</code> is made available to response middleware. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2155">#2155</a>)</li>
+<li><code>Client.logout()</code> also cancels any existing <code>force_authenticate</code>. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2218">#2218</a>, <a href="https://github.com/tomchristie/django-rest-framework/issues/2259">#2259</a>)</li>
+<li>Extra assertions and better checks to preventing incorrect serializer API use. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2228">#2228</a>, <a href="https://github.com/tomchristie/django-rest-framework/issues/2234">#2234</a>, <a href="https://github.com/tomchristie/django-rest-framework/issues/2262">#2262</a>, <a href="https://github.com/tomchristie/django-rest-framework/issues/2263">#2263</a>, <a href="https://github.com/tomchristie/django-rest-framework/issues/2266">#2266</a>, <a href="https://github.com/tomchristie/django-rest-framework/issues/2267">#2267</a>, <a href="https://github.com/tomchristie/django-rest-framework/issues/2289">#2289</a>, <a href="https://github.com/tomchristie/django-rest-framework/issues/2291">#2291</a>)</li>
+<li>Fixed <code>min_length</code> message for <code>CharField</code>. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2255">#2255</a>)</li>
+<li>Fix <code>UnicodeDecodeError</code>, which can occur on serializer <code>repr</code>.  (<a href="https://github.com/tomchristie/django-rest-framework/issues/2270">#2270</a>, <a href="https://github.com/tomchristie/django-rest-framework/issues/2279">#2279</a>)</li>
+<li>Fix empty HTML values when a default is provided. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2280">#2280</a>, <a href="https://github.com/tomchristie/django-rest-framework/issues/2294">#2294</a>)</li>
+<li>Fix <code>SlugRelatedField</code> raising <code>UnicodeEncodeError</code> when used as a multiple choice input. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2290">#2290</a>)</li>
+</ul>
+<h3 id="301">3.0.1</h3>
+<p><strong>Date</strong>: <a href="https://github.com/tomchristie/django-rest-framework/issues?q=milestone%3A%223.0.1+Release%22">11th December 2014</a>.</p>
+<ul>
+<li>More helpful error message when the default Serializer <code>create()</code> fails. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2013">#2013</a>)</li>
+<li>Raise error when attempting to save serializer if data is not valid. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2098">#2098</a>)</li>
+<li>Fix <code>FileUploadParser</code> breaks with empty file names and multiple upload handlers. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2109">#2109</a>)</li>
+<li>Improve <code>BindingDict</code> to support standard dict-functions. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2135">#2135</a>, <a href="https://github.com/tomchristie/django-rest-framework/issues/2163">#2163</a>)</li>
+<li>Add <code>validate()</code> to <code>ListSerializer</code>. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2168">#2168</a>, <a href="https://github.com/tomchristie/django-rest-framework/issues/2225">#2225</a>, <a href="https://github.com/tomchristie/django-rest-framework/issues/2232">#2232</a>)</li>
+<li>Fix JSONP renderer failing to escape some characters. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2169">#2169</a>, <a href="https://github.com/tomchristie/django-rest-framework/issues/2195">#2195</a>)</li>
+<li>Add missing default style for <code>FileField</code>. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2172">#2172</a>)</li>
+<li>Actions are required when calling <code>ViewSet.as_view()</code>. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2175">#2175</a>)</li>
+<li>Add <code>allow_blank</code> to <code>ChoiceField</code>. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2184">#2184</a>, <a href="https://github.com/tomchristie/django-rest-framework/issues/2239">#2239</a>)</li>
+<li>Cosmetic fixes in the HTML renderer. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2187">#2187</a>)</li>
+<li>Raise error if <code>fields</code> on serializer is not a list of strings. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2193">#2193</a>, <a href="https://github.com/tomchristie/django-rest-framework/issues/2213">#2213</a>)</li>
+<li>Improve checks for nested creates and updates. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2194">#2194</a>, <a href="https://github.com/tomchristie/django-rest-framework/issues/2196">#2196</a>)</li>
+<li><code>validated_attrs</code> argument renamed to <code>validated_data</code> in <code>Serializer</code> <code>create()</code>/<code>update()</code>. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2197">#2197</a>)</li>
+<li>Remove deprecated code to reflect the dropped Django versions. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2200">#2200</a>)</li>
+<li>Better serializer errors for nested writes. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2202">#2202</a>, <a href="https://github.com/tomchristie/django-rest-framework/issues/2215">#2215</a>)</li>
+<li>Fix pagination and custom permissions incompatibility. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2205">#2205</a>)</li>
+<li>Raise error if <code>fields</code> on serializer is not a list of strings. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2213">#2213</a>)</li>
+<li>Add missing translation markers for relational fields. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2231">#2231</a>)</li>
+<li>Improve field lookup behavior for dicts/mappings. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2244">#2244</a>, <a href="https://github.com/tomchristie/django-rest-framework/issues/2243">#2243</a>)</li>
+<li>Optimized hyperlinked PK. (<a href="https://github.com/tomchristie/django-rest-framework/issues/2242">#2242</a>)</li>
+</ul>
+<h3 id="300">3.0.0</h3>
+<p><strong>Date</strong>: 1st December 2014</p>
+<p>For full details see the <a href="../3.0-announcement/index.html">3.0 release announcement</a>.</p>
+<hr />
+<p>For older release notes, <a href="../../old-release-notes">please see the version 2.x documentation</a>.</p>
+<!-- 3.0.1 -->
+
+<p><!-- 3.0.2 -->
+<!-- 3.0.3 -->
+<!-- 3.0.4 -->
+<!-- 3.0.5 --></p>
+
+          </div>
+          <!--/span-->
+        </div>
+        <!--/row-->
+      </div>
+      <!--/.fluid-container-->
+    </div>
+    <!--/.body content-->
+    <div id="push"></div>
+  </div>
+  <!--/.wrapper -->
+
+  <footer class="span12">
+    <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</a>
+    </p>
+  </footer>
+
+  <!-- Le javascript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="../../js/jquery-1.8.1-min.js"></script>
+  <script src="../../js/prettify-1.0.js"></script>
+  <script src="../../js/bootstrap-2.1.1-min.js"></script>
+  <script src="../../js/theme.js"></script>
+
+  <script>
+    //$('.side-nav').scrollspy()
+    var shiftWindow = function() {
+      scrollBy(0, -50)
+    };
+    if (location.hash) shiftWindow();
+    window.addEventListener("hashchange", shiftWindow);
+
+    $('.dropdown-menu').on('click touchstart', function(event) {
+      event.stopPropagation();
+    });
+
+    // Dynamically force sidenav to no higher than browser window
+    $('.side-nav').css('max-height', window.innerHeight - 130);
+
+    $(function() {
+      $(window).resize(function() {
+        $('.side-nav').css('max-height', window.innerHeight - 130);
+      });
+    });
+  </script>
+</body>
+
+</html>

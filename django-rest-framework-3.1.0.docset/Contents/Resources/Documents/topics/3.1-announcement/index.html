@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <title>3.1 Announcement - Django REST framework</title>
+  <link href="../../img/favicon.ico" rel="icon" type="image/x-icon">
+  <link rel="canonical" href="http://www.django-rest-framework.org/topics/3.1-announcement/index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Django, API, REST, 3.1 Announcement">
+  <meta name="author" content="Tom Christie">
+
+  <!-- Le styles -->
+  <link href="../../css/prettify.css" rel="stylesheet">
+  <link href="../../css/bootstrap.css" rel="stylesheet">
+  <link href="../../css/bootstrap-responsive.css" rel="stylesheet">
+  <link href="../../css/default.css" rel="stylesheet">
+
+  <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-18852272-2']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+  <style>
+    span.fusion-wrap a {
+      display: block;
+      margin-top: 10px;
+      color: black;
+    }
+    a.fusion-poweredby {
+      display: block;
+      margin-top: 10px;
+    }
+    @media (max-width: 767px) {
+      div.promo {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body onload="prettyPrint()" class="-page">
+
+  <div class="wrapper">
+
+        <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="repo-link btn btn-primary btn-small" href="https://github.com/tomchristie/django-rest-framework/tree/master">GitHub</a>
+          <a class="repo-link btn btn-inverse btn-small " rel="prev" href="../kickstarter-announcement/index.html">
+            Next <i class="icon-arrow-right icon-white"></i>
+          </a>
+          <a class="repo-link btn btn-inverse btn-small " rel="next" href="../3.0-announcement/index.html">
+            <i class="icon-arrow-left icon-white"></i> Previous
+          </a>
+          <a class="repo-link btn btn-inverse btn-small" href="#searchModal" data-toggle="modal"><i class="icon-search icon-white"></i> Search</a>
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="../../index.html">Django REST framework</a>
+          <div class="nav-collapse collapse">
+            
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+              <li ><a href="../../index.html">Home</a></li>
+               
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tutorial <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  
+                  <li >
+                    <a href="../../tutorial/quickstart/index.html">Quickstart</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../tutorial/1-serialization/index.html">1 - Serialization</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../tutorial/2-requests-and-responses/index.html">2 - Requests and responses</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../tutorial/3-class-based-views/index.html">3 - Class based views</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../tutorial/4-authentication-and-permissions/index.html">4 - Authentication and permissions</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../tutorial/5-relationships-and-hyperlinked-apis/index.html">5 - Relationships and hyperlinked APIs</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../tutorial/6-viewsets-and-routers/index.html">6 - Viewsets and routers</a>
+                  </li>
+                  
+                </ul>
+              </li>
+                
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">API Guide <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  
+                  <li >
+                    <a href="../../api-guide/requests/index.html">Requests</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../api-guide/responses/index.html">Responses</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../api-guide/views/index.html">Views</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../api-guide/generic-views/index.html">Generic views</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../api-guide/viewsets/index.html">Viewsets</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../api-guide/routers/index.html">Routers</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../api-guide/parsers/index.html">Parsers</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../api-guide/renderers/index.html">Renderers</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../api-guide/serializers/index.html">Serializers</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../api-guide/fields/index.html">Serializer fields</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../api-guide/relations/index.html">Serializer relations</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../api-guide/validators/index.html">Validators</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../api-guide/authentication/index.html">Authentication</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../api-guide/permissions/index.html">Permissions</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../api-guide/throttling/index.html">Throttling</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../api-guide/filtering/index.html">Filtering</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../api-guide/pagination/index.html">Pagination</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../api-guide/versioning/index.html">Versioning</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../api-guide/content-negotiation/index.html">Content negotiation</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../api-guide/metadata/index.html">Metadata</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../api-guide/format-suffixes/index.html">Format suffixes</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../api-guide/reverse/index.html">Returning URLs</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../api-guide/exceptions/index.html">Exceptions</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../api-guide/status-codes/index.html">Status codes</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../api-guide/testing/index.html">Testing</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../../api-guide/settings/index.html">Settings</a>
+                  </li>
+                  
+                </ul>
+              </li>
+                
+              <li class="dropdown active">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Topics <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  
+                  <li >
+                    <a href="../documenting-your-api/index.html">Documenting your API</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../internationalization/index.html">Internationalization</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../ajax-csrf-cors/index.html">AJAX, CSRF & CORS</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../browser-enhancements/index.html">Browser enhancements</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../browsable-api/index.html">The Browsable API</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../rest-hypermedia-hateoas/index.html">REST, Hypermedia & HATEOAS</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../third-party-resources/index.html">Third Party Resources</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../contributing/index.html">Contributing to REST framework</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../project-management/index.html">Project management</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../3.0-announcement/index.html">3.0 Announcement</a>
+                  </li>
+                  
+                  <li class="active" >
+                    <a href="index.html">3.1 Announcement</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../kickstarter-announcement/index.html">Kickstarter Announcement</a>
+                  </li>
+                  
+                  <li >
+                    <a href="../release-notes/index.html">Release Notes</a>
+                  </li>
+                  
+                </ul>
+              </li>
+               
+
+            </ul>
+            
+          </div>
+          <!--/.nav-collapse -->
+
+        </div>
+      </div>
+    </div>
+
+    <div class="body-content">
+      <div class="container-fluid">
+
+        <!-- Search Modal -->
+        <div id="searchModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3 id="myModalLabel">Documentation search</h3>
+          </div>
+
+          <div class="modal-body">
+            <!-- Custom google search -->
+            <script>
+              (function() {
+                var cx = '015016005043623903336:rxraeohqk6w';
+                var gcse = document.createElement('script');
+                gcse.type = 'text/javascript';
+                gcse.async = true;
+                gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+                  '//www.google.com/cse/cse.js?cx=' + cx;
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(gcse, s);
+              })();
+            </script>
+            <gcse:search></gcse:search>
+          </div>
+
+          <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+          </div>
+        </div>
+
+        <div class="row-fluid">
+
+          <div class="span3">
+            <!-- TODO
+            <p style="margin-top: -12px">
+              <a class="btn btn-mini btn-primary" style="width: 60px">&laquo; previous</a>
+              <a class="btn btn-mini btn-primary" style="float: right; margin-right: 8px; width: 60px;">next &raquo;</a>
+            </p>
+          -->
+            <div id="table-of-contents">
+              <ul class="nav nav-list side-nav well sidebar-nav-fixed">
+
+                
+
+                
+
+                  <li class="main">
+                    <a href="#django-rest-framework-31">Django REST framework 3.1</a>
+                  </li>
+
+                  
+                    <li>
+                      <a href="#pagination">Pagination</a>
+                    </li>
+                  
+                    <li>
+                      <a href="#versioning">Versioning</a>
+                    </li>
+                  
+                    <li>
+                      <a href="#internationalization">Internationalization</a>
+                    </li>
+                  
+                    <li>
+                      <a href="#new-field-types">New field types</a>
+                    </li>
+                  
+                    <li>
+                      <a href="#modelserializer-api">ModelSerializer API</a>
+                    </li>
+                  
+                    <li>
+                      <a href="#moving-packages-out-of-core">Moving packages out of core</a>
+                    </li>
+                  
+                    <li>
+                      <a href="#deprecations">Deprecations</a>
+                    </li>
+                  
+                    <li>
+                      <a href="#whats-next">What's next?</a>
+                    </li>
+                  
+
+                
+
+                
+
+              </ul>
+
+            </div>
+          </div>
+
+          <div id="main-content" class="span9">
+            
+
+            <h1 id="django-rest-framework-31">Django REST framework 3.1</h1>
+<p>The 3.1 release is an intermediate step in the Kickstarter project releases, and includes a range of new functionality.</p>
+<p>Some highlights include:</p>
+<ul>
+<li>A super-smart cursor pagination scheme.</li>
+<li>An improved pagination API, supporting header or in-body pagination styles.</li>
+<li>Pagination controls rendering in the browsable API.</li>
+<li>Better support for API versioning.</li>
+<li>Built-in internationalization support.</li>
+<li>Support for Django 1.8's <code>HStoreField</code> and <code>ArrayField</code>.</li>
+</ul>
+<hr />
+<h2 id="pagination">Pagination</h2>
+<p>The pagination API has been improved, making it both easier to use, and more powerful.</p>
+<p>A guide to the headline features follows. For full details, see <a href="../../api-guide/pagination/index.html">the pagination documentation</a>.</p>
+<p>Note that as a result of this work a number of settings keys and generic view attributes are now moved to pending deprecation. Controlling pagination styles is now largely handled by overriding a pagination class and modifying its configuration attributes.</p>
+<ul>
+<li>The <code>PAGINATE_BY</code> settings key will continue to work but is now pending deprecation. The more obviously named <code>PAGE_SIZE</code> settings key should now be used instead.</li>
+<li>The <code>PAGINATE_BY_PARAM</code>, <code>MAX_PAGINATE_BY</code> settings keys will continue to work but are now pending deprecation, in favor of setting configuration attributes on the configured pagination class.</li>
+<li>The <code>paginate_by</code>, <code>page_query_param</code>, <code>paginate_by_param</code> and <code>max_paginate_by</code> generic view attributes will continue to work but are now pending deprecation, in favor of setting configuration attributes on the configured pagination class.</li>
+<li>The <code>pagination_serializer_class</code> view attribute and <code>DEFAULT_PAGINATION_SERIALIZER_CLASS</code> settings key <strong>are no longer valid</strong>. The pagination API does not use serializers to determine the output format, and you'll need to instead override the <code>get_paginated_response</code> method on a pagination class in order to specify how the output format is controlled.</li>
+</ul>
+<h4 id="new-pagination-schemes">New pagination schemes.</h4>
+<p>Until now, there has only been a single built-in pagination style in REST framework. We now have page, limit/offset and cursor based schemes included by default.</p>
+<p>The cursor based pagination scheme is particularly smart, and is a better approach for clients iterating through large or frequently changing result sets. The scheme supports paging against non-unique indexes, by using both cursor and limit/offset information. It also allows for both forward and reverse cursor pagination. Much credit goes to David Cramer for <a href="http://cramer.io/2011/03/08/building-cursors-for-the-disqus-api/">this blog post</a> on the subject.</p>
+<h4 id="pagination-controls-in-the-browsable-api">Pagination controls in the browsable API.</h4>
+<p>Paginated results now include controls that render directly in the browsable API. If you're using the page or limit/offset style, then you'll see a page based control displayed in the browsable API:</p>
+<p><img alt="page number based pagination" src="../../../img/pages-pagination.png" /></p>
+<p>The cursor based pagination renders a more simple style of control:</p>
+<p><img alt="cursor based pagination" src="../../../img/cursor-pagination.png" /></p>
+<h4 id="support-for-header-based-pagination">Support for header-based pagination.</h4>
+<p>The pagination API was previously only able to alter the pagination style in the body of the response. The API now supports being able to write pagination information in response headers, making it possible to use pagination schemes that use the <code>Link</code> or <code>Content-Range</code> headers.</p>
+<p>For more information, see the <a href="../../../api-guide/pagination/#custom-pagination-styles">custom pagination styles</a> documentation.</p>
+<hr />
+<h2 id="versioning">Versioning</h2>
+<p>We've made it <a href="../../api-guide/versioning/index.html">easier to build versioned APIs</a>. Built-in schemes for versioning include both URL based and Accept header based variations.</p>
+<p>When using a URL based scheme, hyperlinked serializers will resolve relationships to the same API version as used on the incoming request.</p>
+<p>For example, when using <code>NamespaceVersioning</code>, and the following hyperlinked serializer:</p>
+<pre><code>class AccountsSerializer(serializer.HyperlinkedModelSerializer):
+    class Meta:
+        model = Accounts
+        fields = ('account_name', 'users')
+</code></pre>
+<p>The output representation would match the version used on the incoming request. Like so:</p>
+<pre><code>GET http://example.org/v2/accounts/10  # Version 'v2'
+
+{
+    "account_name": "europa",
+    "users": [
+        "http://example.org/v2/users/12",  # Version 'v2'
+        "http://example.org/v2/users/54",
+        "http://example.org/v2/users/87"
+    ]
+}
+</code></pre>
+<hr />
+<h2 id="internationalization">Internationalization</h2>
+<p>REST framework now includes a built-in set of translations, and <a href="../internationalization/index.html">supports internationalized error responses</a>. This allows you to either change the default language, or to allow clients to specify the language via the <code>Accept-Language</code> header.</p>
+<p>You can change the default language by using the standard Django <code>LANGUAGE_CODE</code> setting:</p>
+<pre><code>LANGUAGE_CODE = "es-es"
+</code></pre>
+<p>You can turn on per-request language requests by adding <code>LocalMiddleware</code> to your <code>MIDDLEWARE_CLASSES</code> setting:</p>
+<pre><code>MIDDLEWARE_CLASSES = [
+    ...
+    'django.middleware.locale.LocaleMiddleware'
+]
+</code></pre>
+<p>When per-request internationalization is enabled, client requests will respect the <code>Accept-Language</code> header where possible. For example, let's make a request for an unsupported media type:</p>
+<p><strong>Request</strong></p>
+<pre><code>GET /api/users HTTP/1.1
+Accept: application/xml
+Accept-Language: es-es
+Host: example.org
+</code></pre>
+<p><strong>Response</strong></p>
+<pre><code>HTTP/1.0 406 NOT ACCEPTABLE
+
+{
+    "detail": "No se ha podido satisfacer la solicitud de cabecera de Accept."
+}
+</code></pre>
+<p>Note that the structure of the error responses is still the same. We still have a <code>details</code> key in the response. If needed you can modify this behavior too, by using a <a href="../../api-guide/exceptions/index.html#custom-exception-handling">custom exception handler</a>.</p>
+<p>We include built-in translations both for standard exception cases, and for serializer validation errors.</p>
+<p>The full list of supported languages can be found on our <a href="https://www.transifex.com/projects/p/django-rest-framework/">Transifex project page</a>.</p>
+<p>If you only wish to support a subset of the supported languages, use Django's standard <code>LANGUAGES</code> setting:</p>
+<pre><code>LANGUAGES = [
+    ('de', _('German')),
+    ('en', _('English')),
+]
+</code></pre>
+<p>For more details, see the <a href="../internationalization/index.html">internationalization documentation</a>.</p>
+<p>Many thanks to <a href="https://github.com/jakul">Craig Blaszczyk</a> for helping push this through.</p>
+<hr />
+<h2 id="new-field-types">New field types</h2>
+<p>Django 1.8's new <code>ArrayField</code>, <code>HStoreField</code> and <code>UUIDField</code> are now all fully supported.</p>
+<p>This work also means that we now have both <code>serializers.DictField()</code>, and <code>serializers.ListField()</code> types, allowing you to express and validate a wider set of representations.</p>
+<p>If you're building a new 1.8 project, then you should probably consider using <code>UUIDField</code> as the primary keys for all your models. This style will work automatically with hyperlinked serializers, returning URLs in the following style:</p>
+<pre><code>http://example.org/api/purchases/9b1a433f-e90d-4948-848b-300fdc26365d
+</code></pre>
+<hr />
+<h2 id="modelserializer-api">ModelSerializer API</h2>
+<p>The serializer redesign in 3.0 did not include any public API for modifying how ModelSerializer classes automatically generate a set of fields from a given mode class. We've now re-introduced an API for this, allowing you to create new ModelSerializer base classes that behave differently, such as using a different default style for relationships.</p>
+<p>For more information, see the documentation on <a href="../../api-guide/serializers/index.html#customizing-field-mappings">customizing field mappings</a> for ModelSerializer classes.</p>
+<hr />
+<h2 id="moving-packages-out-of-core">Moving packages out of core</h2>
+<p>We've now moved a number of packages out of the core of REST framework, and into separately installable packages. If you're currently using these you don't need to worry, you simply need to <code>pip install</code> the new packages, and change any import paths.</p>
+<p>We're making this change in order to help distribute the maintainance workload, and keep better focus of the core essentials of the framework.</p>
+<p>The change also means we can be more flexible with which external packages we recommend. For example, the excellently maintained <a href="https://github.com/evonove/django-oauth-toolkit">Django OAuth toolkit</a> has now been promoted as our recommended option for integrating OAuth support.</p>
+<p>The following packages are now moved out of core and should be separately installed:</p>
+<ul>
+<li>OAuth - <a href="http://jpadilla.github.io/django-rest-framework-oauth/">djangorestframework-oauth</a></li>
+<li>XML - <a href="http://jpadilla.github.io/django-rest-framework-xml">djangorestframework-xml</a></li>
+<li>YAML - <a href="http://jpadilla.github.io/django-rest-framework-yaml">djangorestframework-yaml</a></li>
+<li>JSONP - <a href="http://jpadilla.github.io/django-rest-framework-jsonp">djangorestframework-jsonp</a></li>
+</ul>
+<p>It's worth reiterating that this change in policy shouldn't mean any work in your codebase other than adding a new requirement and modifying some import paths. For example to install XML rendering, you would now do:</p>
+<pre><code>pip install djangorestframework-xml
+</code></pre>
+<p>And modify your settings, like so:</p>
+<pre><code>REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
+        'rest_framework_xml.renderers.XMLRenderer'
+    ]
+}
+</code></pre>
+<p>Thanks go to the latest member of our maintenance team, <a href="https://github.com/jpadilla/">José Padilla</a>, for handling this work and taking on ownership of these packages.</p>
+<hr />
+<h2 id="deprecations">Deprecations</h2>
+<p>The <code>request.DATA</code>, <code>request.FILES</code> and <code>request.QUERY_PARAMS</code> attributes move from pending deprecation, to deprecated. Use <code>request.data</code> and <code>request.query_params</code> instead, as discussed in the 3.0 release notes.</p>
+<p>The ModelSerializer Meta options for <code>write_only_fields</code>, <code>view_name</code> and <code>lookup_field</code> are also moved from pending deprecation, to deprecated. Use <code>extra_kwargs</code> instead, as discussed in the 3.0 release notes.</p>
+<p>All these attributes and options will still work in 3.1, but their usage will raise a warning. They will be fully removed in 3.2.</p>
+<hr />
+<h2 id="whats-next">What's next?</h2>
+<p>The next focus will be on HTML renderings of API output and will include:</p>
+<ul>
+<li>HTML form rendering of serializers.</li>
+<li>Filtering controls built-in to the browsable API.</li>
+<li>An alternative admin-style interface.</li>
+</ul>
+<p>This will either be made as a single 3.2 release, or split across two separate releases, with the HTML forms and filter controls coming in 3.2, and the admin-style interface coming in a 3.3 release.</p>
+
+          </div>
+          <!--/span-->
+        </div>
+        <!--/row-->
+      </div>
+      <!--/.fluid-container-->
+    </div>
+    <!--/.body content-->
+    <div id="push"></div>
+  </div>
+  <!--/.wrapper -->
+
+  <footer class="span12">
+    <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</a>
+    </p>
+  </footer>
+
+  <!-- Le javascript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="../../js/jquery-1.8.1-min.js"></script>
+  <script src="../../js/prettify-1.0.js"></script>
+  <script src="../../js/bootstrap-2.1.1-min.js"></script>
+  <script src="../../js/theme.js"></script>
+
+  <script>
+    //$('.side-nav').scrollspy()
+    var shiftWindow = function() {
+      scrollBy(0, -50)
+    };
+    if (location.hash) shiftWindow();
+    window.addEventListener("hashchange", shiftWindow);
+
+    $('.dropdown-menu').on('click touchstart', function(event) {
+      event.stopPropagation();
+    });
+
+    // Dynamically force sidenav to no higher than browser window
+    $('.side-nav').css('max-height', window.innerHeight - 130);
+
+    $(function() {
+      $(window).resize(function() {
+        $('.side-nav').css('max-height', window.innerHeight - 130);
+      });
+    });
+  </script>
+</body>
+
+</html>
