@@ -1,0 +1,19 @@
+commit 4c4e170298ef4f156f2dec1638ef797f1ef9894b
+Author: wolfg1969 <wolfg1969@gmail.com>
+Date:   Sat Sep 26 15:29:27 2015 +0800
+
+    build 3.2.x docs for dash
+
+diff --git a/mkdocs.yml b/mkdocs.yml
+index f2673ee..6a0a732 100644
+--- a/mkdocs.yml
++++ b/mkdocs.yml
+@@ -6,6 +6,8 @@ repo_url: https://github.com/tomchristie/django-rest-framework
+ 
+ theme_dir: docs_theme
+ 
++use_directory_urls: false
++
+ pages:
+  - Home: 'index.md'
+  - Tutorial:

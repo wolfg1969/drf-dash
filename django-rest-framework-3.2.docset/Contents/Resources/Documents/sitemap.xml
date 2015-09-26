@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    
+    <url>
+     <loc>http://www.django-rest-framework.org//index.html</loc>
+     <lastmod>2015-09-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+        
+    <url>
+     <loc>http://www.django-rest-framework.org//tutorial/quickstart/index.html</loc>
+     <lastmod>2015-09-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://www.django-rest-framework.org//tutorial/1-serialization/index.html</loc>
+     <lastmod>2015-09-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://www.django-rest-framework.org//tutorial/2-requests-and-responses/index.html</loc>
+     <lastmod>2015-09-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://www.django-rest-framework.org//tutorial/3-class-based-views/index.html</loc>
+     <lastmod>2015-09-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://www.django-rest-framework.org//tutorial/4-authentication-and-permissions/index.html</loc>
+     <lastmod>2015-09-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://www.django-rest-framework.org//tutorial/5-relationships-and-hyperlinked-apis/index.html</loc>
+     <lastmod>2015-09-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://www.django-rest-framework.org//tutorial/6-viewsets-and-routers/index.html</loc>
+     <lastmod>2015-09-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>http://www.django-rest-framework.org//api-guide/requests/index.html</loc>
+     <lastmod>2015-09-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://www.django-rest-framework.org//api-guide/responses/index.html</loc>
+     <lastmod>2015-09-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://www.django-rest-framework.org//api-guide/views/index.html</loc>
+     <lastmod>2015-09-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://www.django-rest-framework.org//api-guide/generic-views/index.html</loc>
+     <lastmod>2015-09-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://www.django-rest-framework.org//api-guide/viewsets/index.html</loc>
+     <lastmod>2015-09-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://www.django-rest-framework.org//api-guide/routers/index.html</loc>
+     <lastmod>2015-09-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://www.django-rest-framework.org//api-guide/parsers/index.html</loc>
+     <lastmod>2015-09-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://www.django-rest-framework.org//api-guide/renderers/index.html</loc>
+     <lastmod>2015-09-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://www.django-rest-framework.org//api-guide/serializers/index.html</loc>
+     <lastmod>2015-09-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://www.django-rest-framework.org//api-guide/fields/index.html</loc>
+     <lastmod>2015-09-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://www.django-rest-framework.org//api-guide/relations/index.html</loc>
+     <lastmod>2015-09-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://www.django-rest-framework.org//api-guide/validators/index.html</loc>
+     <lastmod>2015-09-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://www.django-rest-framework.org//api-guide/authentication/index.html</loc>
+     <lastmod>2015-09-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://www.django-rest-framework.org//api-guide/permissions/index.html</loc>
+     <lastmod>2015-09-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://www.django-rest-framework.org//api-guide/throttling/index.html</loc>
+     <lastmod>2015-09-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://www.django-rest-framework.org//api-guide/filtering/index.html</loc>
+     <lastmod>2015-09-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://www.django-rest-framework.org//api-guide/pagination/index.html</loc>
+     <lastmod>2015-09-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://www.django-rest-framework.org//api-guide/versioning/index.html</loc>
+     <lastmod>2015-09-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://www.django-rest-framework.org//api-guide/content-negotiation/index.html</loc>
+     <lastmod>2015-09-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://www.django-rest-framework.org//api-guide/metadata/index.html</loc>
+     <lastmod>2015-09-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://www.django-rest-framework.org//api-guide/format-suffixes/index.html</loc>
+     <lastmod>2015-09-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://www.django-rest-framework.org//api-guide/reverse/index.html</loc>
+     <lastmod>2015-09-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://www.django-rest-framework.org//api-guide/exceptions/index.html</loc>
+     <lastmod>2015-09-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://www.django-rest-framework.org//api-guide/status-codes/index.html</loc>
+     <lastmod>2015-09-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://www.django-rest-framework.org//api-guide/testing/index.html</loc>
+     <lastmod>2015-09-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://www.django-rest-framework.org//api-guide/settings/index.html</loc>
+     <lastmod>2015-09-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>http://www.django-rest-framework.org//topics/documenting-your-api/index.html</loc>
+     <lastmod>2015-09-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://www.django-rest-framework.org//topics/internationalization/index.html</loc>
+     <lastmod>2015-09-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://www.django-rest-framework.org//topics/ajax-csrf-cors/index.html</loc>
+     <lastmod>2015-09-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://www.django-rest-framework.org//topics/browser-enhancements/index.html</loc>
+     <lastmod>2015-09-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://www.django-rest-framework.org//topics/browsable-api/index.html</loc>
+     <lastmod>2015-09-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://www.django-rest-framework.org//topics/rest-hypermedia-hateoas/index.html</loc>
+     <lastmod>2015-09-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://www.django-rest-framework.org//topics/third-party-resources/index.html</loc>
+     <lastmod>2015-09-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://www.django-rest-framework.org//topics/contributing/index.html</loc>
+     <lastmod>2015-09-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://www.django-rest-framework.org//topics/project-management/index.html</loc>
+     <lastmod>2015-09-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://www.django-rest-framework.org//topics/3.0-announcement/index.html</loc>
+     <lastmod>2015-09-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://www.django-rest-framework.org//topics/3.1-announcement/index.html</loc>
+     <lastmod>2015-09-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://www.django-rest-framework.org//topics/3.2-announcement/index.html</loc>
+     <lastmod>2015-09-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://www.django-rest-framework.org//topics/kickstarter-announcement/index.html</loc>
+     <lastmod>2015-09-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://www.django-rest-framework.org//topics/release-notes/index.html</loc>
+     <lastmod>2015-09-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+</urlset>
