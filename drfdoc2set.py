@@ -7,6 +7,8 @@ version = sys.argv[1]
 
 docset_path = 'django-rest-framework-%s.docset' % version
 
+print docset_path
+
 db = sqlite3.connect('%s/Contents/Resources/docSet.dsidx' % docset_path)
 cur = db.cursor()
 
