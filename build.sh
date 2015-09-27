@@ -8,7 +8,9 @@ fi
 DIR=$( cd "$( dirname $0 )" && pwd )
 VERSION=$1
 DOC_VERSION=${VERSION:0:3}
-DOCSET_DIR="django-rest-framework-${DOC_VERSION}.docset"
+DOCSET_NAME="django-rest-framework-${DOC_VERSION}.docset"
+DOCSET_DIR="Dash-User-Contributions/docsets/Django_REST_Framework"
+DOCSET_VER_DIR="${DOCSET_DIR}/versions/${DOC_VERSION}"
 
 echo "DOC VERSION: ${DOC_VERSION}"
 
@@ -29,10 +31,10 @@ status=$?
 if [ $status -eq 0 ]; then
   echo "Generate docset......"
   cd ${DIR}/build
-  mkdir -p ${DOCSET_DIR}/Contents/Resources/Documents
-  cp -Rf django-rest-framework/site/* ${DOCSET_DIR}/Contents/Resources/Documents/
+  mkdir -p ${DOCSET_NAME}/Contents/Resources/Documents
+  cp -Rf django-rest-framework/site/* ${DOCSET_NAME}/Contents/Resources/Documents/
   
-  cat << EOF > ${DOCSET_DIR}/Contents/Info.plist
+  cat << EOF > ${DOCSET_NAME}/Contents/Info.plist
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
@@ -53,6 +55,12 @@ if [ $status -eq 0 ]; then
 </plist>
 EOF
   
-  python ../drfdoc2set.py ${DOC_VERSION} && tar --exclude='.DS_Store' -czf django-rest-framework-${DOC_VERSION}.tgz ${DOCSET_DIR} && echo " done."
+  python ../drfdoc2set.py ${DOC_VERSION} && tar --exclude='.DS_Store' -czf django-rest-framework-${DOC_VERSION}.tgz ${DOCSET_NAME} && echo " done."
+  
+  if [ -f django-rest-framework-${DOC_VERSION}.tgz ]; then
+    cp -vfp django-rest-framework-${DOC_VERSION}.tgz ../../${DOCSET_DIR}/django-rest-framework.tgz
+    mkdir -p ../../${DOCSET_VER_DIR}
+    cp -vfp django-rest-framework-${DOC_VERSION}.tgz ../../${DOCSET_VER_DIR}/django-rest-framework.tgz
+  fi
 fi
 
