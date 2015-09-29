@@ -5,7 +5,7 @@ if [ $# -ne 1 ]; then
   exit 1
 fi
 
-DIR=$( cd "$( dirname $0 )" && pwd )
+WORKING_DIR=$( cd "$( dirname $0 )" && pwd )
 VERSION=$1
 DOC_VERSION=${VERSION:0:3}
 DOCSET_NAME="django-rest-framework-${DOC_VERSION}.docset"
@@ -16,21 +16,26 @@ echo "DOC VERSION: ${DOC_VERSION}"
 
 mkdir -p build && cd build
 
-if [ ! -d django-rest-framework ]; then
-  git clone git@github.com:tomchristie/django-rest-framework.git
+if [ -d django-rest-framework ]; then
+  rm -rf django-rest-framework  
 fi
+git clone git@github.com:tomchristie/django-rest-framework.git
+
+if [ -d Dash-User-Contributions ]; then
+  rm -rf Dash-User-Contributions 
+fi
+git clone git@github.com:wolfg1969/Dash-User-Contributions.git
 
 cd django-rest-framework
-git fetch origin
 git checkout -b ${VERSION}-docs tags/${VERSION}
 
-git apply ${DIR}/3.2.patch || echo "Is the patch already applied?"
+git apply ${WORKING_DIR}/3.2.patch || echo "Is the patch already applied?"
 
 mkdocs build --clean --quiet 2>&1 > /dev/null
 status=$?
 if [ $status -eq 0 ]; then
   echo "Generate docset......"
-  cd ${DIR}/build
+  cd ${WORKING_DIR}/build
   mkdir -p ${DOCSET_NAME}/Contents/Resources/Documents
   cp -Rf django-rest-framework/site/* ${DOCSET_NAME}/Contents/Resources/Documents/
   
@@ -44,7 +49,7 @@ if [ $status -eq 0 ]; then
 	<key>CFBundleName</key>
 	<string>Django REST framework</string>
 	<key>DocSetPlatformFamily</key>
-	<string>drf</string>
+	<string>django</string>
 	<key>isDashDocset</key>
 	<true/>
   <key>dashIndexFilePath</key>
@@ -58,9 +63,9 @@ EOF
   python ../drfdoc2set.py ${DOC_VERSION} && tar --exclude='.DS_Store' -czf django-rest-framework-${DOC_VERSION}.tgz ${DOCSET_NAME} && echo " done."
   
   if [ -f django-rest-framework-${DOC_VERSION}.tgz ]; then
-    cp -vfp django-rest-framework-${DOC_VERSION}.tgz ../../${DOCSET_DIR}/django-rest-framework.tgz
-    mkdir -p ../../${DOCSET_VER_DIR}
-    cp -vfp django-rest-framework-${DOC_VERSION}.tgz ../../${DOCSET_VER_DIR}/django-rest-framework.tgz
+    cp -vfp django-rest-framework-${DOC_VERSION}.tgz ${DOCSET_DIR}/django-rest-framework.tgz
+    mkdir -p ${DOCSET_VER_DIR}
+    cp -vfp django-rest-framework-${DOC_VERSION}.tgz ${DOCSET_VER_DIR}/django-rest-framework.tgz
   fi
 fi
 
