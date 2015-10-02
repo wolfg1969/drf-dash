@@ -1,7 +1,7 @@
 drf-dash
 ========
 
-Django REST framework docset for Dash (http://kapeli.com/dash/)
+Build Django REST framework docset for Dash (http://kapeli.com/dash/)
 
 Instructions
 ------------
