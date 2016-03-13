@@ -12,6 +12,6 @@ Instructions
 ------------
 
 ```
-$ make run 3.2.4
+$ make run version=3.2.4
 $ ls build
 ```
