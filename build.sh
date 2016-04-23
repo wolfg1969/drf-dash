@@ -69,7 +69,7 @@ EOF
     cp -vfp django-rest-framework-${DOC_VERSION}.tgz ${DOCSET_VER_DIR}/django-rest-framework.tgz
     
     cd ${WORKING_DIR}/build/Dash-User-Contributions
-    wget http://kapeli.com/feeds/zzz/docsetcontrib.tgz && tar -xzf docsetcontrib.tgz && ./docsetcontrib --verify || echo "verify failed"; exit 1
+    wget http://kapeli.com/feeds/zzz/docsetcontrib.tgz && tar -xzf docsetcontrib.tgz && ./docsetcontrib --verify && echo "docset is good" || echo "verify failed"; exit 1
   fi
 fi
 
