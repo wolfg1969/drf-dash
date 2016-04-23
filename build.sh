@@ -29,7 +29,7 @@ git clone git@github.com:wolfg1969/Dash-User-Contributions.git
 cd django-rest-framework
 git checkout -b ${VERSION}-docs tags/${VERSION}
 
-git apply ${WORKING_DIR}/3.2.patch || echo "Is the patch already applied?"
+git apply ${WORKING_DIR}/3.x.patch || echo "Is the patch already applied?"
 
 mkdocs build --clean --quiet 2>&1 > /dev/null
 status=$?
