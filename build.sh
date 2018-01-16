@@ -7,7 +7,8 @@ fi
 
 WORKING_DIR=$( cd "$( dirname $0 )" && pwd )
 VERSION=$1
-DOC_VERSION=${VERSION:0:3}
+#DOC_VERSION=${VERSION:0:3}
+DOC_VERSION=$VERSION
 DOCSET_NAME="django-rest-framework-${DOC_VERSION}.docset"
 DOCSET_DIR="Dash-User-Contributions/docsets/Django_REST_Framework"
 DOCSET_VER_DIR="${DOCSET_DIR}/versions/${DOC_VERSION}"
