@@ -6,12 +6,14 @@ Build Django REST framework docset for Dash (http://kapeli.com/dash/)
 Dependencies
 ------------
 
-- [virtualenv](http://virtualenv.readthedocs.org/en/latest/installation.html)
+- [pipenv](https://pipenv.readthedocs.io/en/latest/)
 
 Instructions
 ------------
 
 ```
-$ make run version=3.2.4
+$ pipenv install mkdocs
+$ pipenv shell
+$ make run version=3.8.2
 $ ls build
 ```
