@@ -3,11 +3,10 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 name = "pypi"
 
-[dev-packages]
-
 [packages]
 mkdocs = "*"
-pyyaml = "*"
+tornado = "*"
+beautifulsoup4 = "*"
 
 [requires]
 python_version = "2.7"

@@ -40,7 +40,7 @@ if [ $status -eq 0 ]; then
   cd ${WORKING_DIR}/build
   mkdir -p ${DOCSET_NAME}/Contents/Resources/Documents
   cp -Rf django-rest-framework/site/* ${DOCSET_NAME}/Contents/Resources/Documents/
-  
+
   cat << EOF > ${DOCSET_NAME}/Contents/Info.plist
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -61,16 +61,18 @@ if [ $status -eq 0 ]; then
 </dict>
 </plist>
 EOF
-  
+
   python ../drfdoc2set.py ${DOC_VERSION} && tar --exclude='.DS_Store' -czf django-rest-framework-${DOC_VERSION}.tgz ${DOCSET_NAME} && echo " done."
-  
+
   if [ -f django-rest-framework-${DOC_VERSION}.tgz ]; then
     cp -vfp django-rest-framework-${DOC_VERSION}.tgz ${DOCSET_DIR}/django-rest-framework.tgz
     mkdir -p ${DOCSET_VER_DIR}
     cp -vfp django-rest-framework-${DOC_VERSION}.tgz ${DOCSET_VER_DIR}/django-rest-framework.tgz
-    
+
     cd ${WORKING_DIR}/build/Dash-User-Contributions
-    wget http://kapeli.com/feeds/zzz/docsetcontrib.tgz && tar -xzf docsetcontrib.tgz && ./docsetcontrib --verify && echo "docset is good" || echo "verify failed"; exit 1
+    if [ ! -f docsetcontrib.tgz ]; then
+      wget http://kapeli.com/feeds/zzz/docsetcontrib.tgz
+    fi
+    tar -xzf docsetcontrib.tgz && ./docsetcontrib --verify && echo "docset is good" || echo "verify failed"; exit 1
   fi
 fi
-
