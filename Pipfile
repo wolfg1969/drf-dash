@@ -7,6 +7,7 @@ name = "pypi"
 
 [packages]
 mkdocs = "*"
+pyyaml = "*"
 
 [requires]
 python_version = "2.7"
