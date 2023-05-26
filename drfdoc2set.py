@@ -3,9 +3,7 @@
 import os, re, sqlite3, sys
 from bs4 import BeautifulSoup, NavigableString, Tag
 
-version = sys.argv[1]
-
-docset_path = 'django-rest-framework-%s.docset' % version
+docset_path = 'django-rest-framework.docset'
 
 print(docset_path)
 
