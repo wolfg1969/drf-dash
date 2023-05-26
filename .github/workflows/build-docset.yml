@@ -5,11 +5,11 @@ on:
 #       - '**'
 #     tags-ignore:
 #       - '**'
-#   workflow_call:
-#     outputs:
-#       run_id:
-#         value: ${{ github.run_id }}
-#   workflow_dispatch: {}
+  workflow_call:
+    outputs:
+      run_id:
+        value: ${{ github.run_id }}
+  workflow_dispatch: {}
 
 jobs:
   build:
