@@ -20,10 +20,6 @@ jobs:
       proceed: ${{ steps.main.outputs.proceed == 'true' }}
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
-        with:
-          python-version: '3.10'
-          cache: pip
       - id: DRFLatestRelease
         name: Get DRF Latest Release
         uses: pozetroninc/github-action-get-latest-release@master
