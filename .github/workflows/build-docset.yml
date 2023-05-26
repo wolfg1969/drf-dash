@@ -32,9 +32,11 @@ jobs:
         working-directory: ./.build
         run: |
           DOCSET_NAME="django-rest-framework.docset"
+          cd django-rest-framework
           # force using file urls
           echo "use_directory_urls: false" >> mkdocs.yml
-          cd django-rest-framework && pipenv run mkdocs build --clean && cd ..
+          pipenv run mkdocs build --clean
+          cd ..
           mkdir -p ${DOCSET_NAME}/Contents/Resources/Documents
           cp -Rf django-rest-framework/site/* ${DOCSET_NAME}/Contents/Resources/Documents/
 
