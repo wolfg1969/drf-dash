@@ -47,9 +47,9 @@ jobs:
             tar --exclude='.DS_Store' -czf django-rest-framework-${DOC_VERSION}.tgz ${DOCSET_NAME} && \
             echo " done."
       - uses: actions/upload-artifact@v3
-          with:
-          name: django-rest-framework.tgz
-          path: .build/django-rest-framework-*.tgz
+        with:
+        name: django-rest-framework.tgz
+        path: .build/django-rest-framework-*.tgz
           # cp -vfp django-rest-framework-${DOC_VERSION}.tgz ${DOCSET_DIR}/django-rest-framework.tgz
 #           mkdir -p ${DOCSET_VER_DIR}
 #           cp -vfp django-rest-framework-${DOC_VERSION}.tgz ${DOCSET_VER_DIR}/django-rest-framework.tgz
