@@ -30,12 +30,9 @@ jobs:
           path: .build/django-rest-framework
       - name: Build Docset
         env:
-          DOC_VERSION: ${{ steps.DRFLatestRelease.outputs.release }}
           DOCSET_NAME: "django-rest-framework-${{ steps.DRFLatestRelease.outputs.release }}.docset"
-          # DOCSET_DIR: "Dash-User-Contributions/docsets/Django_REST_Framework"
-          # DOCSET_VER_DIR: "${DOCSET_DIR}/versions/${{ steps.DRFLatestRelease.outputs.release }}"
+        working-directory: ./.build
         run: |
-          cd .build
           # force using file urls
           echo "use_directory_urls: false" >> mkdocs.yml
           cd django-rest-framework && pipenv run mkdocs build --clean && cd ..
@@ -44,19 +41,15 @@ jobs:
 
           cp -v ../Info.plist ${DOCSET_NAME}/Contents/
           pipenv run python ../drfdoc2set.py ${DOC_VERSION} && \
-            tar --exclude='.DS_Store' -czf django-rest-framework-${DOC_VERSION}.tgz ${DOCSET_NAME} && \
-            echo " done."
+            tar --exclude='.DS_Store' -czf django-rest-framework.tgz ${DOCSET_NAME}
+      - name: Verify Docset
+        working-directory: ./.build
+        run: |
+          wget http://kapeli.com/feeds/zzz/docsetcontrib.tgz && \
+            tar -xzf docsetcontrib.tgz && \
+            ./docsetcontrib --verify && echo "docset is good" || echo "verify failed"; exit 1
       - uses: actions/upload-artifact@v3
         with:
          name: django-rest-framework.tgz
-         path: .build/django-rest-framework-*.tgz
-          # cp -vfp django-rest-framework-${DOC_VERSION}.tgz ${DOCSET_DIR}/django-rest-framework.tgz
-#           mkdir -p ${DOCSET_VER_DIR}
-#           cp -vfp django-rest-framework-${DOC_VERSION}.tgz ${DOCSET_VER_DIR}/django-rest-framework.tgz
-
-            # cd ${WORKING_DIR}/build/Dash-User-Contributions
-#             if [ ! -f docsetcontrib.tgz ]; then
-#               wget http://kapeli.com/feeds/zzz/docsetcontrib.tgz
-#             fi
-#             tar -xzf docsetcontrib.tgz && ./docsetcontrib --verify && echo "docset is good" || echo "verify failed"; exit 1
+         path: .build/django-rest-framework.tgz
 
