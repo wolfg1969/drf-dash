@@ -32,8 +32,8 @@ jobs:
         env:
           DOC_VERSION: ${{ steps.DRFLatestRelease.outputs.release }}
           DOCSET_NAME: "django-rest-framework-${{ steps.DRFLatestRelease.outputs.release }}.docset"
-          DOCSET_DIR: "Dash-User-Contributions/docsets/Django_REST_Framework"
-          DOCSET_VER_DIR: "${DOCSET_DIR}/versions/${{ steps.DRFLatestRelease.outputs.release }}"
+          # DOCSET_DIR: "Dash-User-Contributions/docsets/Django_REST_Framework"
+          # DOCSET_VER_DIR: "${DOCSET_DIR}/versions/${{ steps.DRFLatestRelease.outputs.release }}"
         run: |
           cd .build
           # force using file urls
@@ -43,10 +43,16 @@ jobs:
           cp -Rf django-rest-framework/site/* ${DOCSET_NAME}/Contents/Resources/Documents/
 
           cp -v ../Info.plist ${DOCSET_NAME}/Contents/
-          pipenv run python ../drfdoc2set.py ${DOC_VERSION} && tar --exclude='.DS_Store' -czf django-rest-framework-${DOC_VERSION}.tgz ${DOCSET_NAME} && echo " done."
-          cp -vfp django-rest-framework-${DOC_VERSION}.tgz ${DOCSET_DIR}/django-rest-framework.tgz
-          mkdir -p ${DOCSET_VER_DIR}
-          cp -vfp django-rest-framework-${DOC_VERSION}.tgz ${DOCSET_VER_DIR}/django-rest-framework.tgz
+          pipenv run python ../drfdoc2set.py ${DOC_VERSION} && \
+            tar --exclude='.DS_Store' -czf django-rest-framework-${DOC_VERSION}.tgz ${DOCSET_NAME} && \
+            echo " done."
+      - uses: actions/upload-artifact@v3
+          with:
+          name: django-rest-framework.tgz
+          path: .build/django-rest-framework-*.tgz
+          # cp -vfp django-rest-framework-${DOC_VERSION}.tgz ${DOCSET_DIR}/django-rest-framework.tgz
+#           mkdir -p ${DOCSET_VER_DIR}
+#           cp -vfp django-rest-framework-${DOC_VERSION}.tgz ${DOCSET_VER_DIR}/django-rest-framework.tgz
 
             # cd ${WORKING_DIR}/build/Dash-User-Contributions
 #             if [ ! -f docsetcontrib.tgz ]; then
