@@ -18,9 +18,9 @@ jobs:
         name: Get DRF Latest Release
         uses: pozetroninc/github-action-get-latest-release@master
         with:
-          owner: encode
-          repo: django-rest-framework
+          repository: encode/django-rest-framework
           excludes: prerelease, draft
+          token: ${{ secrets.GITHUB_TOKEN }}
       - name: Build Docset
         run: |
           pipenv run make run version="${{ steps.DRFLatestRelease.outputs.release }}"
