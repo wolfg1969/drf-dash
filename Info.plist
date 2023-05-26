@@ -7,7 +7,7 @@
     <key>CFBundleName</key>
     <string>Django REST framework</string>
     <key>DocSetPlatformFamily</key>
-    <string>django</string>
+    <string>drf</string>
     <key>isDashDocset</key>
     <true/>
     <key>dashIndexFilePath</key>
