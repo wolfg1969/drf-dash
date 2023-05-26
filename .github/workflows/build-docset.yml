@@ -5,13 +5,11 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
+      - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
         with:
           python-version: '3.7'
-          cache: pip
-      - name: InstallRequirements
-        run: |
-          pip install mkdocs
+          cache: 'pipenv'
       - name: GetDRFLatestRelease
         uses: pozetroninc/github-action-get-latest-release@master
         with:
