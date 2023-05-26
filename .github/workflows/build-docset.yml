@@ -1,5 +1,16 @@
 name: BuildDocset
-on: [push]
+on:
+  push:
+      branches:
+        - '**'
+      tags-ignore:
+        - '**'
+    workflow_call:
+      outputs:
+        run_id:
+          value: ${{ github.run_id }}
+    workflow_dispatch: {}
+
 jobs:
   build:
     runs-on: macos-latest
@@ -38,6 +49,7 @@ jobs:
           pipenv run mkdocs build --clean
           cd ..
           mkdir -p ${DOCSET_NAME}/Contents/Resources/Documents
+          echo "${{ steps.DRFLatestRelease.outputs.release }}" > ${DOCSET_NAME}/Contents/Resources/Documents/drf-version
           cp -Rf django-rest-framework/site/* ${DOCSET_NAME}/Contents/Resources/Documents/
 
           cp -v ../Info.plist ${DOCSET_NAME}/Contents/

@@ -1,0 +1,108 @@
+name: Publish
+
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+    inputs:
+      no_skip_when_current:
+        default: false
+        type: boolean
+        description: |
+          Create a new release even if one already
+          exists for the current version of the CDK.
+
+jobs:
+  should-proceed:
+    name: Should proceed?
+    runs-on: ubuntu-22.04
+    outputs:
+      proceed: ${{ steps.main.outputs.proceed == 'true' }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+          cache: pip
+      - id: DRFLatestRelease
+        name: Get DRF Latest Release
+        uses: pozetroninc/github-action-get-latest-release@master
+        with:
+          repository: encode/django-rest-framework
+          excludes: prerelease, draft
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - id: main
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [[ "${{ inputs.no_skip_when_current }}" == "true" ]]; then
+            1>&2 echo "proceed!"
+            echo "proceed=true" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+          
+          latest_release_tag=$( \
+            gh release view \
+              --repo=$GITHUB_REPOSITORY \
+              --json tagName \
+              | jq -r .tagName
+          )
+          
+          latest_release_drf_version=$( \
+            echo $latest_release_tag \
+            | sed -En 's ^v([^-]+)-[0-9]+$ \1 p' \
+          )
+          
+          current_drf_version=${{ steps.DRFLatestRelease.outputs.release }}
+          
+          1>&2 echo "latest release tag: $latest_release_tag"
+          1>&2 echo "latest release drf version: $latest_release_drf_version"
+          1>&2 echo "current drf version: $current_drf_version"
+          
+          if [[ "$latest_release_drf_version" != "$current_drf_version" ]]; then
+            1>&2 echo "proceed!"
+            echo "proceed=true" >> $GITHUB_OUTPUT
+          else
+            1>&2 echo "skip!"
+            echo "proceed=false" >> $GITHUB_OUTPUT
+          fi
+
+  build-docset:
+    if: ${{ needs.should-proceed.outputs.proceed == 'true' }}
+    name: Build Docset
+    needs: should-proceed
+    uses: ./.github/workflows/build-docset.yml
+
+  create-release:
+    name: Create Release
+    needs: build-docset
+    runs-on: ubuntu-22.04
+    permissions:
+      actions: read
+      contents: read
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/download-artifact@v3
+        with:
+          name: django-rest-framework.tgz
+      - name: Extract docset version
+        run: |
+          tar \
+            --extract \
+            --file=django-rest-framework.tgz \
+            --strip-components=4 \
+            django-rest-framework.docset/Contents/Resources/Documents/drf-version
+      - name: Create new release
+        env:
+          GH_TOKEN: ${{ secrets.PAT }}
+        run: |
+          tag="v$(cat drf-version)-$(date +%s)"
+          gh release create \
+            --repo=$GITHUB_REPOSITORY \
+            --target=$GITHUB_SHA \
+            --title=$tag \
+            --notes="DRF $(cat drf-version)" \
+            --latest \
+            "$tag" \
+            django-rest-framework.tgz
