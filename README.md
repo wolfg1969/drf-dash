@@ -1,6 +1,8 @@
 drf-dash
 ========
 
+![publish workflow](https://github.com/wolfg1969/drf-dash/actions/workflows/publish.yml/badge.svg) Now build with GitHub Actions! 
+
 Build Django REST framework docset for Dash (http://kapeli.com/dash/)
 
 Dependencies
