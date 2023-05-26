@@ -30,9 +30,10 @@ jobs:
           path: .build/django-rest-framework
       - name: Build Docset
         env:
-          DOCSET_NAME: "django-rest-framework-${{ steps.DRFLatestRelease.outputs.release }}.docset"
+          DOC_VERSION: ${{ steps.DRFLatestRelease.outputs.release }}
         working-directory: ./.build
         run: |
+          DOCSET_NAME="django-rest-framework-${DOC_VERSION}.docset"
           # force using file urls
           echo "use_directory_urls: false" >> mkdocs.yml
           cd django-rest-framework && pipenv run mkdocs build --clean && cd ..
