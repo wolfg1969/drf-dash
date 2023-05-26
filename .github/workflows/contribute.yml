@@ -1,0 +1,114 @@
+name: Contribute
+
+on:
+  release:
+    types:
+      - published
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        type: string
+
+jobs:
+  push:
+    name: Push
+    runs-on: ubuntu-22.04
+    permissions:
+      actions: read
+      contents: read
+    outputs:
+      release_version: ${{ steps.set-env.outputs.release_version }}
+      pr_head: ${{ steps.push.outputs.pr_head }}
+    steps:
+      - name: Download release asset
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download \
+            ${{ inputs.release_tag || github.ref_name }} \
+            --repo=$GITHUB_REPOSITORY \
+            --pattern=django-rest-framework.tgz \
+            --dir=/tmp
+      - name: Set environment variables
+        id: set-env
+        run: |
+          release_version=${{ inputs.release_tag || github.ref_name }}
+          docset_version=$(echo $release_version | sed -En 's ^v([0-9.]+)-([0-9]+) \1/\2 p')
+          target_branch="django-rest-framework-$release_version"
+          
+          echo RELEASE_VERSION=$release_version >> $GITHUB_ENV
+          echo DOCSET_VERSION=$docset_version >> $GITHUB_ENV
+          echo TARGET_BRANCH=$target_branch >> $GITHUB_ENV
+          
+          echo release_version=$release_version >> $GITHUB_OUTPUT
+      - uses: actions/checkout@v3
+        with:
+          repository: Kapeli/Dash-User-Contributions
+          token: ${{ secrets.GITHUB_TOKEN }}
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Check out target branch
+        run: |
+          git checkout -b ${TARGET_BRANCH}
+      - name: Place docset assets
+        run: |
+          cp /tmp/django-rest-framework.tgz docsets/Django_REST_Framework/
+          mkdir -p docsets/Django_REST_Framework/versions/${RELEASE_VERSION}
+          cp docsets/Django_REST_Framework/django-rest-framework.tgz docsets/Django_REST_Framework/versions/${RELEASE_VERSION}/django-rest-framework.tgz
+      - name: Update docset metadata
+        run: |
+          readonly tmp=$(mktemp)
+          cat docsets/Django_REST_Framework/docset.json \
+          | jq --arg release_version "$RELEASE_VERSION" \
+               --arg docset_version "$DOCSET_VERSION" \
+               --indent 4 \
+              '
+                  .version = $docset_version |
+                  .specific_versions =
+                  [{
+                    version: $docset_version,
+                    archive: ("versions/"+$release_version+"/django-rest-framework.tgz")
+                  }] +
+                  .specific_versions
+              ' \
+          > $tmp
+          mv $tmp docsets/Django_REST_Framework/docset.json
+      - name: Configure git
+        env:
+          GH_TOKEN: ${{ secrets.PAT }}
+        run: |
+          gh auth status
+          gh auth setup-git
+          git config --global user.email "$(gh api /user/public_emails | jq -r .[0].email)"
+          git config --global user.name "$(gh api /user | jq -r .name)"
+      - name: Push target branch
+        id: push
+        env:
+          GH_TOKEN: ${{ secrets.PAT }}
+        run: |
+          readonly gh_login=$(gh api /user | jq -r .login)
+          git add -A
+          git commit -m "Django Rest Framework ${RELEASE_VERSION}"
+          git push \
+            "https://${gh_login}@github.com/${gh_login}/Dash-User-Contributions.git" \
+            "HEAD:${TARGET_BRANCH}"
+          echo "pr_head=${gh_login}:${TARGET_BRANCH}" >> $GITHUB_OUTPUT
+
+  # pull_request:
+#     name: Pull Request
+#     needs: push
+#     runs-on: ubuntu-22.04
+#     steps:
+#       - name: Create pull request
+#         env:
+#           GH_TOKEN: ${{ secrets.PAT }}
+#         run: |
+#           readonly release_version=${{ needs.push.outputs.release_version }}
+#           readonly pr_head=${{ needs.push.outputs.pr_head }}
+#
+#           gh pr create \
+#             --repo=Kapeli/Dash-User-Contributions \
+#             --base=master \
+#             --head=${pr_head} \
+#             --title="Django Rest Framework ${release_version}" \
+#             --body="This is an automated PR. Please report issues to https://github.com/wolfg1969/drf-dash."
