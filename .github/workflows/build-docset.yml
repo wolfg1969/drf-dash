@@ -47,7 +47,7 @@ jobs:
         working-directory: ./.build
         run: |
           wget http://kapeli.com/feeds/zzz/docsetcontrib.tgz && \
-            tar -xzf docsetcontrib.tgz && \
+            tar -xvzf docsetcontrib.tgz && chmod +x docsetcontrib && \
             ./docsetcontrib --verify && echo "docset is good" || echo "verify failed"; exit 1
       - uses: actions/upload-artifact@v3
         with:
