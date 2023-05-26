@@ -1,15 +1,15 @@
 name: BuildDocset
 on:
   push:
-      branches:
-        - '**'
-      tags-ignore:
-        - '**'
-    workflow_call:
-      outputs:
-        run_id:
-          value: ${{ github.run_id }}
-    workflow_dispatch: {}
+    branches:
+      - '**'
+    tags-ignore:
+      - '**'
+  workflow_call:
+    outputs:
+      run_id:
+        value: ${{ github.run_id }}
+  workflow_dispatch: {}
 
 jobs:
   build:
