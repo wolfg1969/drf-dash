@@ -21,7 +21,17 @@ jobs:
           repository: encode/django-rest-framework
           excludes: prerelease, draft
           token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Checkout DRF
+        uses: actions/checkout@v3
+        with:
+          repository: encode/django-rest-framework
+          token: ${{ secrets.GITHUB_TOKEN }}
+          ref: ${{ steps.DRFLatestRelease.outputs.release }}
+          path: .build
       - name: Build Docset
         run: |
-          pipenv run make run version="${{ steps.DRFLatestRelease.outputs.release }}"
+          cd .build
+          # force using file urls
+          echo "use_directory_urls: false" >> mkdocs.yml
+          pipenv run mkdocs build --clean
 
