@@ -37,7 +37,7 @@ for tag in soup.find_all('a', {'href':any}):
                     parts[0] if parts[0][-1] != '/' else parts[0][:-1], parts[1])
                 path = path.replace('/#', '.html#')
             cur.execute('INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES (?,?,?)', (name, 'Guide', path))
-            print 'name: %s, path: %s' % (name, path)
+            print('name: %s, path: %s' % (name, path))
 
 db.commit()
 db.close()
