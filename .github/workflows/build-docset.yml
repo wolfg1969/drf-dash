@@ -10,7 +10,10 @@ jobs:
         with:
           python-version: '3.7'
           cache: 'pipenv'
-      - name: GetDRFLatestRelease
+      - name: Install pipenv
+        run: curl https://raw.githubusercontent.com/pypa/pipenv/master/get-pipenv.py | python
+      - run: pipenv install
+      - id: GetDRFLatestRelease
         uses: pozetroninc/github-action-get-latest-release@master
         with:
           owner: encode
