@@ -12,13 +12,16 @@ jobs:
           cache: 'pipenv'
       - name: Install pipenv
         run: curl https://raw.githubusercontent.com/pypa/pipenv/master/get-pipenv.py | python
-      - run: pipenv install
-      - id: GetDRFLatestRelease
+      - name: Install Requirements
+        run: pipenv install
+      - id: DRFLatestRelease
+        name: Get DRF Latest Release
         uses: pozetroninc/github-action-get-latest-release@master
         with:
           owner: encode
           repo: django-rest-framework
           excludes: prerelease, draft
-      - name: ShowRelease
+      - name: Build Docset
         run: |
-          echo "${{ steps.GetDRFLatestRelease.outputs.release }}"
+          pipenv run make run version="${{ steps.DRFLatestRelease.outputs.release }}"
+
