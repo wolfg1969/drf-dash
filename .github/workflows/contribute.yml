@@ -94,21 +94,21 @@ jobs:
             "HEAD:${TARGET_BRANCH}"
           echo "pr_head=${gh_login}:${TARGET_BRANCH}" >> $GITHUB_OUTPUT
 
-  # pull_request:
-#     name: Pull Request
-#     needs: push
-#     runs-on: ubuntu-22.04
-#     steps:
-#       - name: Create pull request
-#         env:
-#           GH_TOKEN: ${{ secrets.PAT }}
-#         run: |
-#           readonly release_version=${{ needs.push.outputs.release_version }}
-#           readonly pr_head=${{ needs.push.outputs.pr_head }}
-#
-#           gh pr create \
-#             --repo=Kapeli/Dash-User-Contributions \
-#             --base=master \
-#             --head=${pr_head} \
-#             --title="Django Rest Framework ${release_version}" \
-#             --body="This is an automated PR. Please report issues to https://github.com/wolfg1969/drf-dash."
+  pull_request:
+    name: Pull Request
+    needs: push
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Create pull request
+        env:
+          GH_TOKEN: ${{ secrets.PAT }}
+        run: |
+          readonly release_version=${{ needs.push.outputs.release_version }}
+          readonly pr_head=${{ needs.push.outputs.pr_head }}
+
+          gh pr create \
+            --repo=Kapeli/Dash-User-Contributions \
+            --base=master \
+            --head=${pr_head} \
+            --title="Django Rest Framework ${release_version}" \
+            --body="This is an automated PR. Please report issues to https://github.com/wolfg1969/drf-dash."
