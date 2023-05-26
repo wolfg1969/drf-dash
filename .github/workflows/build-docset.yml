@@ -27,7 +27,7 @@ jobs:
           repository: encode/django-rest-framework
           token: ${{ secrets.GITHUB_TOKEN }}
           ref: ${{ steps.DRFLatestRelease.outputs.release }}
-          path: .build
+          path: .build/django-rest-framework
       - name: Build Docset
         env:
           DOC_VERSION: ${{ steps.DRFLatestRelease.outputs.release }}
@@ -38,7 +38,7 @@ jobs:
           cd .build
           # force using file urls
           echo "use_directory_urls: false" >> mkdocs.yml
-          pipenv run mkdocs build --clean
+          cd django-rest-framework && pipenv run mkdocs build --clean && cd ..
           mkdir -p ${DOCSET_NAME}/Contents/Resources/Documents
           cp -Rf django-rest-framework/site/* ${DOCSET_NAME}/Contents/Resources/Documents/
 
