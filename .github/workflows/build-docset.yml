@@ -1,0 +1,23 @@
+name: BuildDocset
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.7'
+          cache: pip
+      - name: InstallRequirements
+        run: |
+          pip install mkdocs
+      - name: GetDRFLatestRelease
+        uses: pozetroninc/github-action-get-latest-release@master
+        with:
+          owner: encode
+          repo: django-rest-framework
+          excludes: prerelease, draft
+      - name: ShowRelease
+        run: |
+          echo "${{ steps.GetDRFLatestRelease.outputs.release }}"
