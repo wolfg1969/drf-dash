@@ -89,7 +89,6 @@ jobs:
           readonly gh_login=$(gh api /user | jq -r .login)
           git add -A
           git commit -m "Django Rest Framework ${RELEASE_VERSION}"
-          git config --unset-all http.https://github.com/.extraheader
           git push \
             "https://token:${GH_TOKEN}@github.com/${gh_login}/Dash-User-Contributions.git" \
             "HEAD:${TARGET_BRANCH}"
