@@ -22,7 +22,7 @@ jobs:
     steps:
       - name: Download release asset
         env:
-          GH_TOKEN: ${{ secrets.PAT }}
+          GH_TOKEN: ${{ github.token }}
         run: |
           gh release download \
             ${{ inputs.release_tag || github.ref_name }} \
@@ -44,7 +44,7 @@ jobs:
       - uses: actions/checkout@v3
         with:
           repository: Kapeli/Dash-User-Contributions
-          token: ${{ secrets.PAT }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           persist-credentials: false
           fetch-depth: 0
       - name: Check out target branch
@@ -75,7 +75,7 @@ jobs:
           mv $tmp docsets/Django_REST_Framework/docset.json
       - name: Configure git
         env:
-          GH_TOKEN: ${{ secrets.PAT }}
+          GITHUB_TOKEN: ${{ secrets.PAT }}
         run: |
           gh auth status
           gh auth setup-git
@@ -85,7 +85,7 @@ jobs:
       - name: Push target branch
         id: push
         env:
-          GH_TOKEN: ${{ secrets.PAT }}
+          GITHUB_TOKEN: ${{ secrets.PAT }}
         run: |
           readonly gh_login=$(gh api /user | jq -r .login)
           git add -A
@@ -103,7 +103,7 @@ jobs:
     steps:
       - name: Create pull request
         env:
-          GH_TOKEN: ${{ secrets.PAT }}
+          GITHUB_TOKEN: ${{ secrets.PAT }}
         run: |
           readonly release_version=${{ needs.push.outputs.release_version }}
           readonly pr_head=${{ needs.push.outputs.pr_head }}
