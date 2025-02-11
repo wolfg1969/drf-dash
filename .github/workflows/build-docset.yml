@@ -60,7 +60,7 @@ jobs:
       #          wget http://kapeli.com/feeds/zzz/docsetcontrib.tgz && \
       #            tar -xvzf docsetcontrib.tgz
       #          ./docsetcontrib --verify && echo "docset is good" || (echo "verify failed"; exit 1)
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
          name: django-rest-framework.tgz
          path: .build/django-rest-framework.tgz
