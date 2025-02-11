@@ -90,7 +90,7 @@ jobs:
           git add -A
           git commit -m "Django Rest Framework ${RELEASE_VERSION}"
           git push \
-            "https://token:${GH_TOKEN}@github.com/${gh_login}/Dash-User-Contributions.git" \
+            "https://${gh_login}:${GH_TOKEN}@github.com/${gh_login}/Dash-User-Contributions.git" \
             "HEAD:${TARGET_BRANCH}"
           echo "pr_head=${gh_login}:${TARGET_BRANCH}" >> $GITHUB_OUTPUT
 
