@@ -75,7 +75,7 @@ jobs:
     runs-on: ubuntu-22.04
     permissions:
       actions: read
-      contents: write
+      contents: read
     env:
       GH_TOKEN: ${{ github.token }}
     steps:
@@ -91,10 +91,9 @@ jobs:
             django-rest-framework.docset/Contents/Resources/Documents/drf-version
       - name: Create new release
         env:
-          GH_TOKEN: ${{ secrets.PAT }}
+          GH_TOKEN: ${{ github.token }}
         run: |
           tag="v$(cat drf-version)-$(date +%s)"
-          gh auth login
           gh release create \
             --repo=$GITHUB_REPOSITORY \
             --target=$GITHUB_SHA \
