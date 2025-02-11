@@ -81,6 +81,7 @@ jobs:
           gh auth setup-git
           git config --global user.email "$(gh api /user/public_emails | jq -r .[0].email)"
           git config --global user.name "$(gh api /user | jq -r .name)"
+          git config --unset-all http.https://github.com/.extraheader
       - name: Push target branch
         id: push
         env:
