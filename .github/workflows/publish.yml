@@ -94,6 +94,7 @@ jobs:
           GH_TOKEN: ${{ secrets.PAT }}
         run: |
           tag="v$(cat drf-version)-$(date +%s)"
+          gh auth login
           gh release create \
             --repo=$GITHUB_REPOSITORY \
             --target=$GITHUB_SHA \
