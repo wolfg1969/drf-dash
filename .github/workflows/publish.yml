@@ -75,7 +75,7 @@ jobs:
     runs-on: ubuntu-22.04
     permissions:
       actions: read
-      contents: read
+      contents: write
     env:
       GH_TOKEN: ${{ github.token }}
     steps:
