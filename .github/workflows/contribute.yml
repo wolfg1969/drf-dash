@@ -86,13 +86,12 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.PAT }}
         run: |
-          readonly gh_login=$(gh api /user | jq -r .login)
           git add -A
           git commit -m "Django Rest Framework ${RELEASE_VERSION}"
           git push \
-            "https://${gh_login}@github.com/${gh_login}/Dash-User-Contributions.git" \
+            "https://github.com/wolfg1969/Dash-User-Contributions.git" \
             "HEAD:${TARGET_BRANCH}"
-          echo "pr_head=${gh_login}:${TARGET_BRANCH}" >> $GITHUB_OUTPUT
+          echo "pr_head=wolfg1969:${TARGET_BRANCH}" >> $GITHUB_OUTPUT
 
   pull_request:
     name: Pull Request
