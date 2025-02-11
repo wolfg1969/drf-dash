@@ -91,7 +91,7 @@ jobs:
             django-rest-framework.docset/Contents/Resources/Documents/drf-version
       - name: Create new release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.PAT }}
         run: |
           tag="v$(cat drf-version)-$(date +%s)"
           gh release create \
