@@ -22,7 +22,7 @@ jobs:
           python-version: '3.7'
           cache: 'pipenv'
       - name: Install pipenv
-        run: curl https://raw.githubusercontent.com/pypa/pipenv/master/get-pipenv.py | python
+        run: curl https://bootstrap.pypa.io/pip/3.7/get-pip.py | python
       - name: Install Requirements
         run: pipenv install
       - id: DRFLatestRelease
