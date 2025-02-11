@@ -73,15 +73,13 @@ jobs:
     name: Create Release
     needs: build-docset
     runs-on: ubuntu-22.04
-    permissions:
-      actions: read
-      contents: read
-    env:
-      GH_TOKEN: ${{ github.token }}
+    permissions: write-all
     steps:
       - uses: actions/download-artifact@v4
         with:
           name: django-rest-framework.tgz
+        env:
+          GH_TOKEN: ${{ github.token }}
       - name: Extract docset version
         run: |
           tar \
