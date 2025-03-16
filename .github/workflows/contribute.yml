@@ -10,7 +10,7 @@ on:
         type: string
 
 permissions:
-  ctions: read
+  actions: read
   contents: write
 
 jobs:
