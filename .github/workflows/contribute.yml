@@ -9,9 +9,7 @@ on:
       release_tag:
         type: string
 
-permissions:
-  actions: read
-  contents: write
+permissions: write-all
 
 jobs:
   push:
