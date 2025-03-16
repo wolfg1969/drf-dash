@@ -47,7 +47,7 @@ jobs:
           echo release_version=$release_version >> $GITHUB_OUTPUT
       - uses: actions/checkout@v3
         with:
-          repository: ${USERNAME}/Dash-User-Contributions
+          repository: ${{ env.USERNAME }}/Dash-User-Contributions
           token: ${{ secrets.GITHUB_TOKEN }}
           persist-credentials: false
           fetch-depth: 0
