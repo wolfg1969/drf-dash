@@ -97,12 +97,12 @@ jobs:
           git push -f \
             "https://${gh_login}:${GITHUB_TOKEN}@github.com/${gh_login}/Dash-User-Contributions.git" \
             "HEAD:${TARGET_BRANCH}"
-          echo "pr_head=${gh_login}:${TARGET_BRANCH}" >> $GITHUB_OUTPUT
+          # echo "pr_head=${gh_login}:${TARGET_BRANCH}" >> $GITHUB_OUTPUT
 
           gh pr create \
             --repo=Kapeli/Dash-User-Contributions \
             --base=master \
-            --head=${pr_head} \
+            --head=${gh_login}:${TARGET_BRANCH} \
             --title="Django Rest Framework ${release_version}" \
             --body="This is an automated PR. Please report issues to https://github.com/wolfg1969/drf-dash."
   
