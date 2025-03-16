@@ -32,6 +32,8 @@ jobs:
             --dir=/tmp
       - name: Set environment variables
         id: set-env
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT }}
         run: |
           release_version=${{ inputs.release_tag || github.ref_name }}
           docset_version=$(echo $release_version | sed -En 's ^v([0-9.]+)-([0-9]+) \1/\2 p')
@@ -40,11 +42,12 @@ jobs:
           echo RELEASE_VERSION=$release_version >> $GITHUB_ENV
           echo DOCSET_VERSION=$docset_version >> $GITHUB_ENV
           echo TARGET_BRANCH=$target_branch >> $GITHUB_ENV
+          echo USERNAME=$(gh api /user | jq -r .login) >> $GITHUB_ENV
           
           echo release_version=$release_version >> $GITHUB_OUTPUT
       - uses: actions/checkout@v3
         with:
-          repository: Kapeli/Dash-User-Contributions
+          repository: ${USERNAME}/Dash-User-Contributions
           token: ${{ secrets.GITHUB_TOKEN }}
           persist-credentials: false
           fetch-depth: 0
