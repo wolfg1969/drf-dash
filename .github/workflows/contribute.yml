@@ -47,8 +47,8 @@ jobs:
           echo release_version=$release_version >> $GITHUB_OUTPUT
       - uses: actions/checkout@v3
         with:
-          # repository: ${{ env.USERNAME }}/Dash-User-Contributions
-          repository: Kapeli/Dash-User-Contributions
+          repository: ${{ env.USERNAME }}/Dash-User-Contributions
+          # repository: Kapeli/Dash-User-Contributions
           token: ${{ secrets.GITHUB_TOKEN }}
           persist-credentials: false
           fetch-depth: 0
@@ -97,26 +97,26 @@ jobs:
           git push -f \
             "https://${gh_login}:${GITHUB_TOKEN}@github.com/${gh_login}/Dash-User-Contributions.git" \
             "HEAD:${TARGET_BRANCH}"
-          # echo "pr_head=${gh_login}:${TARGET_BRANCH}" >> $GITHUB_OUTPUT
-
-          gh pr create \
-            --repo=Kapeli/Dash-User-Contributions \
-            --base=master \
-            --head=${gh_login}:${TARGET_BRANCH} \
-            --title="Django Rest Framework ${release_version}" \
-            --body="This is an automated PR. Please report issues to https://github.com/wolfg1969/drf-dash."
+          echo "pr_head=${gh_login}:${TARGET_BRANCH}" >> $GITHUB_OUTPUT
   
-  #pull_request:
-  #  name: Pull Request
-  #  needs: push
-  #  runs-on: ubuntu-22.04
-  #  steps:
-  #    - name: Create pull request
+  pull_request:
+    name: Pull Request
+    needs: push
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Create pull request
   #      env:
   #        GITHUB_TOKEN: ${{ secrets.PAT }}
   #      run: |
   #        readonly release_version=${{ needs.push.outputs.release_version }}
-  #        readonly pr_head=${{ needs.push.outputs.pr_head }}
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.PAT }}
+          title: "Django Rest Framework ${release_version}"
+          body: "This is an automated PR. Please report issues to https://github.com/wolfg1969/drf-dash."
+          branch: ${{ env.TARGET_BRANCH }}
+          base: master
+          draft: false
 
   #        gh pr create \
   #          --repo=Kapeli/Dash-User-Contributions \
