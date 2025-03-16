@@ -50,7 +50,7 @@ jobs:
           repository: ${{ env.USERNAME }}/Dash-User-Contributions
           # repository: Kapeli/Dash-User-Contributions
           token: ${{ secrets.GITHUB_TOKEN }}
-          persist-credentials: false
+          # persist-credentials: false
           fetch-depth: 0
       - name: Check out target branch
         run: |
@@ -112,7 +112,7 @@ jobs:
         uses: peter-evans/create-pull-request@v3
         with:
           token: ${{ secrets.PAT }}
-          title: "Django Rest Framework ${release_version}"
+          title: "Django Rest Framework ${{ env.RELEASE_VERSION }}"
           body: "This is an automated PR. Please report issues to https://github.com/wolfg1969/drf-dash."
           branch: ${{ env.TARGET_BRANCH }}
           base: master
