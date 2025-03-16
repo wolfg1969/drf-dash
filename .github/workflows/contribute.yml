@@ -9,13 +9,14 @@ on:
       release_tag:
         type: string
 
+permissions:
+  actions: read
+  contents: write
+
 jobs:
   push:
     name: Push
     runs-on: ubuntu-22.04
-    permissions:
-      actions: read
-      contents: read
     outputs:
       release_version: ${{ steps.set-env.outputs.release_version }}
       pr_head: ${{ steps.push.outputs.pr_head }}
@@ -75,7 +76,7 @@ jobs:
           mv $tmp docsets/Django_REST_Framework/docset.json
       - name: Configure git
         env:
-          GITHUB_TOKEN: ${{ secrets.PAT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh auth status
           gh auth setup-git
@@ -84,7 +85,7 @@ jobs:
       - name: Push target branch
         id: push
         env:
-          GITHUB_TOKEN: ${{ secrets.PAT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           readonly gh_login=$(gh api /user | jq -r .login)
           git add -A
@@ -101,7 +102,7 @@ jobs:
     steps:
       - name: Create pull request
         env:
-          GITHUB_TOKEN: ${{ secrets.PAT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           readonly release_version=${{ needs.push.outputs.release_version }}
           readonly pr_head=${{ needs.push.outputs.pr_head }}
