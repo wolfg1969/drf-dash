@@ -9,7 +9,9 @@ on:
       release_tag:
         type: string
 
-permissions: write-all
+permissions:
+  actions: read
+  contents: write
 
 jobs:
   push:
@@ -74,7 +76,7 @@ jobs:
           mv $tmp docsets/Django_REST_Framework/docset.json
       - name: Configure git
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PAT }}
         run: |
           gh auth status
           gh auth setup-git
@@ -83,7 +85,7 @@ jobs:
       - name: Push target branch
         id: push
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PAT }}
         run: |
           readonly gh_login=$(gh api /user | jq -r .login)
           git add -A
@@ -100,7 +102,7 @@ jobs:
     steps:
       - name: Create pull request
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PAT }}
         run: |
           readonly release_version=${{ needs.push.outputs.release_version }}
           readonly pr_head=${{ needs.push.outputs.pr_head }}
