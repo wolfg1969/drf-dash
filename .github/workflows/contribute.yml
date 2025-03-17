@@ -50,7 +50,7 @@ jobs:
           repository: ${{ env.USERNAME }}/Dash-User-Contributions
           # repository: Kapeli/Dash-User-Contributions
           token: ${{ secrets.GITHUB_TOKEN }}
-          # persist-credentials: false
+          persist-credentials: false
           fetch-depth: 0
       - name: Check out target branch
         run: |
@@ -94,7 +94,9 @@ jobs:
           readonly gh_login=$(gh api /user | jq -r .login)
           git add -A
           git commit -m "Django Rest Framework ${RELEASE_VERSION}"
-          git push -f "HEAD:${TARGET_BRANCH}"
+          git push -f \
+            "https://${gh_login}:${GITHUB_TOKEN}@github.com/${gh_login}/Dash-User-Contributions.git" \
+            "HEAD:${TARGET_BRANCH}"
           echo "pr_head=${gh_login}:${TARGET_BRANCH}" >> $GITHUB_OUTPUT
   
   pull_request:
