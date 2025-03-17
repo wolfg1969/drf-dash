@@ -105,22 +105,13 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: Create pull request
-  #      env:
-  #        GITHUB_TOKEN: ${{ secrets.PAT }}
-  #      run: |
-  #        readonly release_version=${{ needs.push.outputs.release_version }}
-        uses: peter-evans/create-pull-request@v3
-        with:
-          token: ${{ secrets.PAT }}
-          title: "Django Rest Framework ${{ env.RELEASE_VERSION }}"
-          body: "This is an automated PR. Please report issues to https://github.com/wolfg1969/drf-dash."
-          branch: ${{ env.TARGET_BRANCH }}
-          base: master
-          draft: false
-
-  #        gh pr create \
-  #          --repo=Kapeli/Dash-User-Contributions \
-  #          --base=master \
-  #          --head=${pr_head} \
-  #          --title="Django Rest Framework ${release_version}" \
-  #          --body="This is an automated PR. Please report issues to https://github.com/wolfg1969/drf-dash."
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT }}
+        run: |
+          readonly release_version=${{ needs.push.outputs.release_version }}
+          gh pr create \
+            --repo=Kapeli/Dash-User-Contributions \
+            --base=master \
+            --head=${pr_head} \
+            --title="Django Rest Framework ${release_version}" \
+            --body="This is an automated PR. Please report issues to https://github.com/wolfg1969/drf-dash."
