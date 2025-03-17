@@ -98,6 +98,7 @@ jobs:
             "https://${gh_login}:${GITHUB_TOKEN}@github.com/${gh_login}/Dash-User-Contributions.git" \
             "HEAD:${TARGET_BRANCH}"
           echo "pr_head=${gh_login}:${TARGET_BRANCH}" >> $GITHUB_OUTPUT
+          tree -L 2 -d
   
   pull_request:
     name: Pull Request
@@ -109,6 +110,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.PAT }}
         run: |
           readonly release_version=${{ needs.push.outputs.release_version }}
+          tree -L 2 -d
           gh pr create \
             --repo=Kapeli/Dash-User-Contributions \
             --base=master \
